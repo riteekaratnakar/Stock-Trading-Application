@@ -312,7 +312,7 @@ public class mainJFrame extends javax.swing.JFrame {
             buttonLogout.setEnabled(true);
             textFieldUserName.setEnabled(false);
             textFieldPassword.setEnabled(false);
-        
+       
     }//GEN-LAST:event_systemAdminButtonActionPerformed
         else{
             JOptionPane.showMessageDialog(null, "Invalid Credentials");
@@ -328,7 +328,7 @@ public class mainJFrame extends javax.swing.JFrame {
         char[] passwordCharArray = this.textFieldPassword.getPassword();
         String password = String.valueOf(passwordCharArray);
 
-        if ( userName.equals("Sys") && password.equals("Sys")) {
+        //if ( userName.equals("Sys") && password.equals("Sys")) {
             isPasswordFound = true;
             SystemAdminWorkAreaJPanel sysAdminWorkArea = new SystemAdminWorkAreaJPanel(this.rightContainer, this.stockInstance);
             this.rightContainer.add(sysAdminWorkArea);
@@ -420,7 +420,7 @@ public class mainJFrame extends javax.swing.JFrame {
         }
         */
     }//GEN-LAST:event_buttonLoginActionPerformed
-    }
+   // }
     private void enterpriseAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseAdminButtonActionPerformed
         // TODO add your handling code here:
 
@@ -451,9 +451,9 @@ public class mainJFrame extends javax.swing.JFrame {
         }
             }
         }
-         if (!isPasswordFound) {
-            JOptionPane.showMessageDialog(null, "Incorrect password or Id!!");
-        }
+        // if (!isPasswordFound) {
+          //  JOptionPane.showMessageDialog(null, "Incorrect password or Id!!");
+        //}
     }//GEN-LAST:event_enterpriseAdminButtonActionPerformed
 
     private void jLabel33KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel33KeyPressed
@@ -509,10 +509,10 @@ public class mainJFrame extends javax.swing.JFrame {
                             textFieldPassword.setEnabled(false);
 
                         }
-            else{
+         /*   else{
             JOptionPane.showMessageDialog(null, "Invalid Credentials");
             return;
-        }
+        } */
                     }
                 }
             }
@@ -550,10 +550,10 @@ public class mainJFrame extends javax.swing.JFrame {
                                 textFieldPassword.setEnabled(false);
 
                             }
-                            else{
+                      /*      else{
             JOptionPane.showMessageDialog(null, "Invalid Credentials");
             return;
-        }
+        } */
                         }
 
                     }

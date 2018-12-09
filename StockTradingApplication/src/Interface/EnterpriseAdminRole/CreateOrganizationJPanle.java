@@ -171,17 +171,18 @@ public class CreateOrganizationJPanle extends javax.swing.JPanel {
 
     private void buttonAddOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOrganizationActionPerformed
         // TODO add your handling code here:
-       if(textFieldCompnayName.getText().isEmpty() || textFieldCompnayType.getText().isEmpty() || textFieldFaceValue.getText().isEmpty() || textFieldNumberOfShares.getText().isEmpty() || textFieldValuePerShare.getText().isEmpty()){
+    /*   if(textFieldCompnayName.getText().isEmpty() || textFieldCompnayType.getText().isEmpty() || textFieldFaceValue.getText().isEmpty() || textFieldNumberOfShares.getText().isEmpty() || textFieldValuePerShare.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Please enter valid inputs");
          }
-       else{
+       else{ */
         Organization obj = this.enterPrise.getOrganizationDirectoryList().createAndAddOrganization();
         obj.setCompnayType(this.textFieldCompnayType.getText());
         obj.setCompanyName(this.textFieldCompnayName.getText());
         obj.setTotalNoOfshares(Integer.parseInt(this.textFieldNumberOfShares.getText()));
         obj.setFaceValue(Integer.parseInt(this.textFieldFaceValue.getText()));
         obj.setShareVale(Integer.parseInt(this.textFieldValuePerShare.getText()));
-        this.populateTable();}
+        this.populateTable();
+    //}
     }//GEN-LAST:event_buttonAddOrganizationActionPerformed
 
     private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed

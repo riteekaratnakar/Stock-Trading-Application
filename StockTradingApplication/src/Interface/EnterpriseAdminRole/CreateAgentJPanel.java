@@ -110,7 +110,7 @@ public class CreateAgentJPanel extends javax.swing.JPanel {
    }
  
    
-   private boolean validations() {
+  /* private boolean validations() {
 
        usernameJTextField.setBackground(Color.decode("#FFFFFF"));
        passwordJPasswordField.setBackground(Color.decode("#FFFFFF"));
@@ -138,7 +138,7 @@ public class CreateAgentJPanel extends javax.swing.JPanel {
        }
        return true;
 
-   }
+   } */
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -326,7 +326,7 @@ public class CreateAgentJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createJButtonActionPerformed
-       if(validations() ){
+     //  if(validations() ){
          String username = usernameJTextField.getText();
         String password = String.valueOf(passwordJPasswordField.getPassword());
         String name = nameJTextField.getText();
@@ -354,7 +354,7 @@ public class CreateAgentJPanel extends javax.swing.JPanel {
             agent.getSelectedOrganizationDirectoryList().addOrganization(obj);
         }
         this.populateAgentTable();
-       }
+       //}
        
       
     }//GEN-LAST:event_createJButtonActionPerformed
