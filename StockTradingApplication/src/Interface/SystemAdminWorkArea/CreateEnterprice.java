@@ -29,6 +29,7 @@ public class CreateEnterprice extends javax.swing.JPanel {
      * /**
      * Creates new form CreateEnterprice
      */
+    //test changes
     public CreateEnterprice(JPanel rightContainer, StockTrading stockInstance) {
         initComponents();
         this.rightContainer = rightContainer;
