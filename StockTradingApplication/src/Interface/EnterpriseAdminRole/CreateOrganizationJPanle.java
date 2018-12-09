@@ -61,6 +61,21 @@ public class CreateOrganizationJPanle extends javax.swing.JPanel {
         buttonAddOrganization1 = new javax.swing.JButton();
         textFieldCompnayName = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tableCompany1 = new javax.swing.JTable();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        textFieldCompnayType1 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        textFieldNumberOfShares1 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        textFieldFaceValue1 = new javax.swing.JTextField();
+        textFieldValuePerShare1 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        buttonBack2 = new javax.swing.JButton();
+        buttonAddOrganization2 = new javax.swing.JButton();
+        textFieldCompnayName1 = new javax.swing.JTextField();
 
         setLayout(null);
 
@@ -162,7 +177,142 @@ public class CreateOrganizationJPanle extends javax.swing.JPanel {
         jLabel1.setBounds(-22, 0, 790, 490);
 
         add(jPanel4);
-        jPanel4.setBounds(20, 0, 1369, 432);
+        jPanel4.setBounds(20, 0, 0, 0);
+
+        tableCompany1.setBackground(new java.awt.Color(204, 204, 255));
+        tableCompany1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Company Type", "Company Name", "Total Number of Shares", "Face Value", "Value per Share"
+            }
+        ));
+        jScrollPane3.setViewportView(tableCompany1);
+
+        jLabel12.setText("Comapny Type:");
+
+        jLabel13.setText("Company Name:");
+
+        textFieldCompnayType1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldCompnayType1ActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setText("Total Number of Shares:");
+
+        textFieldNumberOfShares1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldNumberOfShares1ActionPerformed(evt);
+            }
+        });
+
+        jLabel15.setText("Face Value:");
+
+        textFieldFaceValue1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldFaceValue1ActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setText("Share Per Value");
+
+        buttonBack2.setText("<<BACK");
+        buttonBack2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBack2buttonBackActionPerformed(evt);
+            }
+        });
+
+        buttonAddOrganization2.setText("Add Organization");
+        buttonAddOrganization2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAddOrganization2buttonAddOrganizationActionPerformed(evt);
+            }
+        });
+
+        textFieldCompnayName1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldCompnayName1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane3))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(241, 241, 241)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel16))
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(textFieldValuePerShare1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGap(22, 22, 22)
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(textFieldCompnayType1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(textFieldCompnayName1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(textFieldNumberOfShares1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(textFieldFaceValue1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(61, 61, 61)
+                                .addComponent(buttonBack2)
+                                .addGap(338, 338, 338)
+                                .addComponent(buttonAddOrganization2)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 564, Short.MAX_VALUE)))
+                .addGap(40, 40, 40))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(44, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(textFieldCompnayType1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(textFieldCompnayName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(textFieldNumberOfShares1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(textFieldFaceValue1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(textFieldValuePerShare1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonBack2)
+                    .addComponent(buttonAddOrganization2))
+                .addGap(20, 20, 20))
+        );
+
+        add(jPanel5);
+        jPanel5.setBounds(0, 0, 1193, 432);
     }// </editor-fold>//GEN-END:initComponents
 
     private void textFieldCompnayNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldCompnayNameActionPerformed
@@ -176,11 +326,11 @@ public class CreateOrganizationJPanle extends javax.swing.JPanel {
          }
        else{ */
         Organization obj = this.enterPrise.getOrganizationDirectoryList().createAndAddOrganization();
-        obj.setCompnayType(this.textFieldCompnayType.getText());
-        obj.setCompanyName(this.textFieldCompnayName.getText());
-        obj.setTotalNoOfshares(Integer.parseInt(this.textFieldNumberOfShares.getText()));
-        obj.setFaceValue(Integer.parseInt(this.textFieldFaceValue.getText()));
-        obj.setShareVale(Integer.parseInt(this.textFieldValuePerShare.getText()));
+        obj.setCompnayType(this.textFieldCompnayType1.getText());
+        obj.setCompanyName(this.textFieldCompnayName1.getText());
+        obj.setTotalNoOfshares(Integer.parseInt(this.textFieldNumberOfShares1.getText()));
+        obj.setFaceValue(Integer.parseInt(this.textFieldFaceValue1.getText()));
+        obj.setShareVale(Integer.parseInt(this.textFieldValuePerShare1.getText()));
         this.populateTable();
     //}
     }//GEN-LAST:event_buttonAddOrganizationActionPerformed
@@ -207,10 +357,47 @@ public class CreateOrganizationJPanle extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_textFieldCompnayTypeActionPerformed
 
+    private void textFieldCompnayType1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldCompnayType1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldCompnayType1ActionPerformed
+
+    private void textFieldNumberOfShares1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldNumberOfShares1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldNumberOfShares1ActionPerformed
+
+    private void textFieldFaceValue1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldFaceValue1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldFaceValue1ActionPerformed
+
+    private void buttonBack2buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBack2buttonBackActionPerformed
+        // TODO add your handling code here:
+        rightContainer.remove(this);
+        Component[] componentArray = rightContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        CardLayout layout = (CardLayout) rightContainer.getLayout();
+        layout.previous(rightContainer);
+    }//GEN-LAST:event_buttonBack2buttonBackActionPerformed
+
+    private void buttonAddOrganization2buttonAddOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOrganization2buttonAddOrganizationActionPerformed
+        // TODO add your handling code here:
+
+        Organization obj = this.enterPrise.getOrganizationDirectoryList().createAndAddOrganization();
+        obj.setCompnayType(this.textFieldCompnayType1.getText());
+        obj.setCompanyName(this.textFieldCompnayName1.getText());
+        obj.setTotalNoOfshares(Integer.parseInt(this.textFieldNumberOfShares1.getText()));
+        obj.setFaceValue(Integer.parseInt(this.textFieldFaceValue1.getText()));
+        obj.setShareVale(Integer.parseInt(this.textFieldValuePerShare1.getText()));
+        this.populateTable();
+    }//GEN-LAST:event_buttonAddOrganization2buttonAddOrganizationActionPerformed
+
+    private void textFieldCompnayName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldCompnayName1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldCompnayName1ActionPerformed
+
     private void populateTable() {
         if (this.enterPrise.getOrganizationDirectoryList() != null) {
 
-            DefaultTableModel model = (DefaultTableModel) this.tableCompany.getModel();
+            DefaultTableModel model = (DefaultTableModel) this.tableCompany1.getModel();
             model.setRowCount(0);
             for (Organization organization : this.enterPrise.getOrganizationDirectoryList().getOrganizationList()) {
                 Object[] row = new Object[5];
@@ -227,20 +414,35 @@ public class CreateOrganizationJPanle extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAddOrganization1;
+    private javax.swing.JButton buttonAddOrganization2;
     private javax.swing.JButton buttonBack1;
+    private javax.swing.JButton buttonBack2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable tableCompany;
+    private javax.swing.JTable tableCompany1;
     private javax.swing.JTextField textFieldCompnayName;
+    private javax.swing.JTextField textFieldCompnayName1;
     private javax.swing.JTextField textFieldCompnayType;
+    private javax.swing.JTextField textFieldCompnayType1;
     private javax.swing.JTextField textFieldFaceValue;
+    private javax.swing.JTextField textFieldFaceValue1;
     private javax.swing.JTextField textFieldNumberOfShares;
+    private javax.swing.JTextField textFieldNumberOfShares1;
     private javax.swing.JTextField textFieldValuePerShare;
+    private javax.swing.JTextField textFieldValuePerShare1;
     // End of variables declaration//GEN-END:variables
 }
