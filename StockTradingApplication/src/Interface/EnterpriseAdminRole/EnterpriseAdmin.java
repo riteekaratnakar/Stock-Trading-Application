@@ -66,6 +66,8 @@ public class EnterpriseAdmin extends javax.swing.JPanel {
 
         jButton1.setText("jButton1");
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
 
@@ -81,7 +83,7 @@ public class EnterpriseAdmin extends javax.swing.JPanel {
 
         labelEnterprise.setText("<value>");
         jPanel1.add(labelEnterprise);
-        labelEnterprise.setBounds(430, 130, 130, 14);
+        labelEnterprise.setBounds(430, 130, 130, 16);
 
         manageOrganizationJButton.setBackground(new java.awt.Color(204, 255, 204));
         manageOrganizationJButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -129,7 +131,7 @@ public class EnterpriseAdmin extends javax.swing.JPanel {
 
         lableNetwork.setText("<value>");
         jPanel1.add(lableNetwork);
-        lableNetwork.setBounds(430, 90, 130, 14);
+        lableNetwork.setBounds(430, 90, 130, 16);
 
         userJButton1.setBackground(new java.awt.Color(204, 255, 204));
         userJButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -159,7 +161,7 @@ public class EnterpriseAdmin extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 100, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

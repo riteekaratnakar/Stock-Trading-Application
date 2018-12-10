@@ -156,28 +156,46 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         tableSell = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(null);
 
         labelAgent.setText("<value>");
+        add(labelAgent);
+        labelAgent.setBounds(705, 23, 95, 16);
 
         enterpriseLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel2.setText("Agent:");
+        add(enterpriseLabel2);
+        enterpriseLabel2.setBounds(579, 12, 120, 30);
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("EnterPrise :");
+        add(enterpriseLabel);
+        enterpriseLabel.setBounds(305, 11, 120, 30);
 
         labelEnterprise.setText("<value>");
+        add(labelEnterprise);
+        labelEnterprise.setBounds(443, 22, 130, 16);
 
         lableNetwork.setText("<value>");
+        add(lableNetwork);
+        lableNetwork.setBounds(136, 22, 88, 16);
 
         enterpriseLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel1.setText("Network");
+        add(enterpriseLabel1);
+        enterpriseLabel1.setBounds(10, 11, 120, 30);
 
         labelCustomer.setText("<value>");
+        add(labelCustomer);
+        labelCustomer.setBounds(932, 23, 95, 16);
 
         enterpriseLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel3.setText("Customer");
+        add(enterpriseLabel3);
+        enterpriseLabel3.setBounds(806, 12, 120, 30);
 
         tableCompany.setBackground(new java.awt.Color(204, 204, 255));
         tableCompany.setModel(new javax.swing.table.DefaultTableModel(
@@ -193,6 +211,9 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tableCompany);
 
+        add(jScrollPane1);
+        jScrollPane1.setBounds(0, 110, 1000, 134);
+
         tablePurchasedCompany.setBackground(new java.awt.Color(204, 204, 255));
         tablePurchasedCompany.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -207,21 +228,34 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(tablePurchasedCompany);
 
+        add(jScrollPane2);
+        jScrollPane2.setBounds(10, 312, 990, 134);
+
         jLabel1.setText("Available Companies");
+        add(jLabel1);
+        jLabel1.setBounds(10, 88, 140, 16);
 
         jLabel2.setText("Shares You Owe");
+        add(jLabel2);
+        jLabel2.setBounds(10, 292, 130, 16);
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel3.setText("Available Amount:");
+        add(jLabel3);
+        jLabel3.setBounds(10, 56, 131, 17);
 
         labelAmountAvailable.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         labelAmountAvailable.setText("NA");
+        add(labelAmountAvailable);
+        labelAmountAvailable.setBounds(159, 60, 120, 17);
 
         textFieldPurchased.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textFieldPurchasedActionPerformed(evt);
             }
         });
+        add(textFieldPurchased);
+        textFieldPurchased.setBounds(440, 252, 157, 30);
 
         buttonPurchased.setText("Purchase");
         buttonPurchased.addActionListener(new java.awt.event.ActionListener() {
@@ -229,8 +263,12 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
                 buttonPurchasedActionPerformed(evt);
             }
         });
+        add(buttonPurchased);
+        buttonPurchased.setBounds(632, 251, 207, 29);
 
         jLabel4.setText("No of shares:");
+        add(jLabel4);
+        jLabel4.setBounds(312, 254, 110, 16);
 
         chartButton.setText("Create Chart");
         chartButton.addActionListener(new java.awt.event.ActionListener() {
@@ -238,6 +276,8 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
                 chartButtonActionPerformed(evt);
             }
         });
+        add(chartButton);
+        chartButton.setBounds(285, 56, 120, 29);
 
         jButton1.setText("Download File");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -245,18 +285,24 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+        add(jButton1);
+        jButton1.setBounds(475, 56, 133, 29);
 
         textSellShare.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textSellShareActionPerformed(evt);
             }
         });
+        add(textSellShare);
+        textSellShare.setBounds(312, 482, 62, 30);
 
         textSellPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textSellPriceActionPerformed(evt);
             }
         });
+        add(textSellPrice);
+        textSellPrice.setBounds(450, 482, 62, 30);
 
         sellSharesButton.setText("Request Sell Share");
         sellSharesButton.addActionListener(new java.awt.event.ActionListener() {
@@ -264,8 +310,12 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
                 sellSharesButtonActionPerformed(evt);
             }
         });
+        add(sellSharesButton);
+        sellSharesButton.setBounds(530, 482, 166, 29);
 
         jLabel6.setText("At Price:");
+        add(jLabel6);
+        jLabel6.setBounds(392, 489, 52, 16);
 
         tableSell.setBackground(new java.awt.Color(204, 204, 255));
         tableSell.setModel(new javax.swing.table.DefaultTableModel(
@@ -281,133 +331,17 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         ));
         jScrollPane3.setViewportView(tableSell);
 
-        jLabel7.setText("Shares:");
+        add(jScrollPane3);
+        jScrollPane3.setBounds(0, 530, 1017, 134);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(enterpriseLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(lableNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(81, 81, 81)
-                        .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(labelEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(enterpriseLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(labelAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(enterpriseLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(labelCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(labelAmountAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(312, 312, 312)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(textFieldPurchased, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(buttonPurchased, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 990, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1017, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(249, 249, 249)
-                        .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
-                        .addComponent(textSellShare, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textSellPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(sellSharesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(36, 36, 36))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(enterpriseLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(lableNetwork))
-                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(labelEnterprise))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(enterpriseLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(labelAgent))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(enterpriseLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(labelCustomer)))
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(labelAmountAvailable)
-                        .addComponent(chartButton)
-                        .addComponent(jButton1)))
-                .addGap(3, 3, 3)
-                .addComponent(jLabel1)
-                .addGap(6, 6, 6)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(textFieldPurchased, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(buttonPurchased))
-                .addGap(10, 10, 10)
-                .addComponent(jLabel2)
-                .addGap(4, 4, 4)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(textSellShare, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel7))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(textSellPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6))
-                    .addComponent(sellSharesButton))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
-        );
+        jLabel7.setText("Shares:");
+        add(jLabel7);
+        jLabel7.setBounds(249, 489, 45, 16);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/CustomerWorkArea/stock.jpg"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        add(jLabel5);
+        jLabel5.setBounds(0, 2, 1070, 660);
     }// </editor-fold>//GEN-END:initComponents
 
     private void textFieldPurchasedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldPurchasedActionPerformed
@@ -577,6 +511,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;

@@ -104,7 +104,7 @@ public class AgentWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Associated Companies");
         add(jLabel1);
-        jLabel1.setBounds(385, 57, 180, 17);
+        jLabel1.setBounds(385, 57, 200, 17);
 
         tableCompany.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -130,7 +130,7 @@ public class AgentWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(265, 289, 110, 25);
+        jButton1.setBounds(265, 289, 110, 29);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setText("<<Back");
@@ -140,11 +140,11 @@ public class AgentWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(jButton2);
-        jButton2.setBounds(111, 289, 100, 25);
+        jButton2.setBounds(111, 289, 100, 29);
 
         lableNetwork.setText("<value>");
         add(lableNetwork);
-        lableNetwork.setBounds(145, 11, 130, 14);
+        lableNetwork.setBounds(145, 11, 130, 16);
 
         enterpriseLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel1.setText("Network");
@@ -158,19 +158,22 @@ public class AgentWorkAreaJPanel extends javax.swing.JPanel {
 
         labelEnterprise.setText("<value>");
         add(labelEnterprise);
-        labelEnterprise.setBounds(457, 12, 130, 14);
+        labelEnterprise.setBounds(457, 12, 130, 16);
 
+        jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel6.setText("Agent Name:");
         add(jLabel6);
-        jLabel6.setBounds(652, 82, 63, 14);
+        jLabel6.setBounds(652, 82, 100, 20);
 
+        jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel7.setText("Email ID:");
         add(jLabel7);
-        jLabel7.setBounds(652, 114, 42, 14);
+        jLabel7.setBounds(652, 114, 90, 17);
 
+        jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel8.setText("Brokerage(%):");
         add(jLabel8);
-        jLabel8.setBounds(656, 152, 72, 14);
+        jLabel8.setBounds(656, 152, 100, 17);
 
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton5.setText("Request to Add Companies");
@@ -180,24 +183,23 @@ public class AgentWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(jButton5);
-        jButton5.setBounds(398, 289, 230, 25);
+        jButton5.setBounds(398, 289, 230, 29);
 
         labelEmailID.setText("jLabel2");
         add(labelEmailID);
-        labelEmailID.setBounds(782, 114, 34, 14);
+        labelEmailID.setBounds(727, 114, 100, 16);
 
         labelAgentName.setText("jLabel2");
         add(labelAgentName);
-        labelAgentName.setBounds(782, 82, 34, 14);
+        labelAgentName.setBounds(760, 80, 70, 16);
 
         labelBokerage.setText("jLabel2");
         add(labelBokerage);
-        labelBokerage.setBounds(782, 152, 34, 14);
+        labelBokerage.setBounds(757, 152, 70, 16);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/AgentWorkArea/stock.jpg"))); // NOI18N
-        jLabel2.setText("jLabel2");
         add(jLabel2);
-        jLabel2.setBounds(2, -3, 790, 410);
+        jLabel2.setBounds(2, -3, 830, 410);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

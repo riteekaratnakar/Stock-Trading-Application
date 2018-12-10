@@ -510,8 +510,12 @@ public class mainJFrame extends javax.swing.JFrame {
                             textFieldPassword.setEnabled(false);
 
                         }
+                        if (!isPasswordFound) {
+            JOptionPane.showMessageDialog(null, "Incorrect password or Id!!");
+        }
                   
                     }
+                    
                 }
             }
         }
@@ -553,6 +557,9 @@ public class mainJFrame extends javax.swing.JFrame {
                                 textFieldPassword.setEnabled(false);
 
                             }
+                            if (!isPasswordFound) {
+            JOptionPane.showMessageDialog(null, "Incorrect password or Id!!");
+        }
                         }
 
                     }

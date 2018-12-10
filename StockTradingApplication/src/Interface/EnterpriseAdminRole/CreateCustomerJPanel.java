@@ -81,6 +81,7 @@ public class CreateCustomerJPanel extends javax.swing.JPanel {
         retypepasswordJPasswordField = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(null);
@@ -203,6 +204,10 @@ public class CreateCustomerJPanel extends javax.swing.JPanel {
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/EnterpriseAdminRole/stock.jpg"))); // NOI18N
         add(jLabel10);
         jLabel10.setBounds(0, 0, 900, 540);
+
+        jLabel11.setText("jLabel11");
+        add(jLabel11);
+        jLabel11.setBounds(590, 430, 53, 16);
     }// </editor-fold>//GEN-END:initComponents
 
     private void populateTable() {
@@ -411,6 +416,7 @@ public class CreateCustomerJPanel extends javax.swing.JPanel {
     private javax.swing.JButton createJButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
