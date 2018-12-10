@@ -99,6 +99,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
                 row[2] = sellShare.getNoPurchasedShares();
                 row[3] = sellShare.getAtPrice();
                 row[4] = sellShare.getNoPurchasedShares() * sellShare.getAtPrice();
+                model.addRow(row);
             }
         }
     }
@@ -519,44 +520,44 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void sellSharesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sellSharesButtonActionPerformed
         //        // TODO add your handling code here:
+        try {
 
-        int selectedRow = tableCompany.getSelectedRow();
-        if (selectedRow >= 0) {
-            int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to purchase ?", "Warning", selectionButton);
-            if (selectionResult == JOptionPane.YES_OPTION) {
-                Organization organization = this.agent.getSelectedOrganizationDirectoryList().getOrganizationList().get(selectedRow);
+            int selectedRow = tablePurchasedCompany.getSelectedRow();
+            if (selectedRow >= 0) {
+                int selectionButton = JOptionPane.YES_NO_OPTION;
+                int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure you want to sell ?", "Warning", selectionButton);
+                if (selectionResult == JOptionPane.YES_OPTION) {
+                    PurchasedShares purchasedShares = this.customer.getPurchasedSharesDirectory().getPurchasedSharesList().get(selectedRow);
+                    int noShare = Integer.valueOf(textSellShare.getText());
+                    int atPrice = Integer.valueOf(textSellPrice.getText());
 
-                int noOfsahresPurshased = Integer.valueOf(textFieldPurchased.getText());
+                    if (purchasedShares.getNoPurchasedShares() >= noShare && noShare > 0 && atPrice > 0) {
 
-                float total = noOfsahresPurshased * organization.getShareVale();
-                float agentComission = (total / 100) * this.agent.getBrokeragePercent();
-                float totalAmount = total + agentComission;
+                        SellShare sellShare = this.agent.getSellShareDirectoryList().createAndAddSellShares();
+                        sellShare.setAtPrice(atPrice);
+                        sellShare.setNoPurchasedShares(noShare);
+                        sellShare.setCompanyName(purchasedShares.getCompanyName());
+                        sellShare.setCustomerAccount(this.customer.getUserAccount());
+                        sellShare.setRequestStatus(Constant.RequestStatus.Pending);
 
-                if (customer.getBalance() >= totalAmount) {
+                        purchasedShares.setNoPurchasedShares(purchasedShares.getNoPurchasedShares() - noShare);
 
-                    PurchasedShares purchasedShares = this.customer.getPurchasedSharesDirectory().createAndAddPurchasedShares();
-                    purchasedShares.setCompanyName(organization.getCompanyName());
-                    purchasedShares.setNoPurchasedShares(noOfsahresPurshased);
-                    purchasedShares.setAtPrice(organization.getShareVale());
-                    purchasedShares.setTotal(total);
-                    organization.setTotalNoOfshares(organization.getTotalNoOfshares() - noOfsahresPurshased);
-                    this.agent.setBrokeragePercent(this.agent.getTotalProfit() + agentComission);
+                        if ((purchasedShares.getNoPurchasedShares() - noShare) == 0) {
+                            this.customer.getPurchasedSharesDirectory().getPurchasedSharesList().remove(selectedRow);
+                        }
 
-                    this.populateTable();
-                    this.populatePurchasedTable();
-                    this.customer.setBalance(this.customer.getBalance() - totalAmount);
-                    String amt = String.valueOf(this.customer.getBalance());
-                    this.labelAmountAvailable.setText(amt);
-
-                } else {
-                    JOptionPane.showMessageDialog(null, "Please Enter Valid No. !!");
+                        this.populatePurchasedTable();
+                        this.populatSellTable();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Please Enter Valid No. !!");
+                    }
                 }
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Please select a Row!!");
-        }
 
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Please Enter Valid No. !!");
+
+        }
     }//GEN-LAST:event_sellSharesButtonActionPerformed
 
     private void textSellShareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSellShareActionPerformed
