@@ -8,9 +8,11 @@ package Interface.CustomerWorkArea;
 import Business.Agent.Agent;
 import Business.Customer.Customer;
 import Business.Customer.PurchasedShares;
+import Business.Customer.SellShare;
 import Business.Enterprice.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Utility.Constant;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -65,7 +67,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         this.customer = customer;
 
         this.populateTable();
-       // this.populatePurchasedTable();
+        this.populatePurchasedTable();
     }
 
     private void populateTable() {
@@ -84,22 +86,36 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         }
     }
 
+    private void populatSellTable() {
+        DefaultTableModel model = (DefaultTableModel) this.tableSell.getModel();
+        model.setRowCount(0);
+
+        for (SellShare sellShare : this.agent.getSellShareDirectoryList().getSelledSharesList()) {
+            if (sellShare.getCustomerAccount().getUserName().equals(this.customer.getUserAccount().getUserName()) && sellShare.getCustomerAccount().getPassword().equals(this.customer.getUserAccount().getPassword())) //           
+            {
+                Object[] row = new Object[5];
+                row[0] = sellShare.getRequestStatus();
+                row[1] = sellShare.getCompanyName();
+                row[2] = sellShare.getNoPurchasedShares();
+                row[3] = sellShare.getAtPrice();
+                row[4] = sellShare.getNoPurchasedShares() * sellShare.getAtPrice();
+            }
+        }
+    }
+
     private void populatePurchasedTable() {
         DefaultTableModel model = (DefaultTableModel) this.tablePurchasedCompany.getModel();
         model.setRowCount(0);
-        int lblAmtTot = 0;
 
-            for (PurchasedShares purchasedShares : this.customer.getPurchasedSharesDirectory().getPurchasedSharesList()) {
-                Object[] row = new Object[4];
-                row[0] = purchasedShares.getCompanyName();
-                row[1] = purchasedShares.getNoPurchasedShares();
-                row[2] = purchasedShares.getAtPrice();
-                row[3] = purchasedShares.getTotal();
+        for (PurchasedShares purchasedShares : this.customer.getPurchasedSharesDirectory().getPurchasedSharesList()) {
+            Object[] row = new Object[4];
+            row[0] = purchasedShares.getCompanyName();
+            row[1] = purchasedShares.getNoPurchasedShares();
+            row[2] = purchasedShares.getAtPrice();
+            row[3] = purchasedShares.getTotal();
 
-                model.addRow(row);
-            lblAmtTot = lblAmtTot + purchasedShares.getTotal();
+            model.addRow(row);
         }
-            labelAmountAvailable.setText(String.valueOf(customer.getBalance() - lblAmtTot));
     }
 
     /**
@@ -121,7 +137,6 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableCompany = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablePurchasedCompany = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -132,9 +147,14 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         buttonPurchased = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         chartButton = new javax.swing.JButton();
-        sellSharesButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        sellSharesTextField = new javax.swing.JTextField();
+        textSellShare = new javax.swing.JTextField();
+        textSellPrice = new javax.swing.JTextField();
+        sellSharesButton = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tableSell = new javax.swing.JTable();
+        jLabel7 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -171,13 +191,6 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
             }
         ));
         jScrollPane1.setViewportView(tableCompany);
-
-        jButton2.setText("<<Back");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
 
         tablePurchasedCompany.setBackground(new java.awt.Color(204, 204, 255));
         tablePurchasedCompany.setModel(new javax.swing.table.DefaultTableModel(
@@ -225,19 +238,49 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        sellSharesButton.setText("Sell Shares");
-        sellSharesButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sellSharesButtonActionPerformed(evt);
-            }
-        });
-
         jButton1.setText("Download File");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        textSellShare.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSellShareActionPerformed(evt);
+            }
+        });
+
+        textSellPrice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSellPriceActionPerformed(evt);
+            }
+        });
+
+        sellSharesButton.setText("Request Sell Share");
+        sellSharesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sellSharesButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("At Price:");
+
+        tableSell.setBackground(new java.awt.Color(204, 204, 255));
+        tableSell.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Status", "Company Name", "Sell Share", "At Price", "Total"
+            }
+        ));
+        jScrollPane3.setViewportView(tableSell);
+
+        jLabel7.setText("Shares:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -266,7 +309,11 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
                         .addGap(10, 10, 10)
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
-                        .addComponent(labelAmountAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(labelAmountAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(chartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70)
+                        .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -284,17 +331,18 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 990, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1017, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jButton2)
-                        .addGap(59, 59, 59)
-                        .addComponent(sellSharesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sellSharesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80)
-                        .addComponent(chartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70)
-                        .addComponent(jButton1)))
+                        .addGap(249, 249, 249)
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addComponent(textSellShare, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textSellPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(sellSharesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
@@ -322,11 +370,14 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(labelCustomer)))
-                .addGap(18, 18, 18)
+                .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(labelAmountAvailable))
-                .addGap(11, 11, 11)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labelAmountAvailable)
+                        .addComponent(chartButton)
+                        .addComponent(jButton1)))
+                .addGap(3, 3, 3)
                 .addComponent(jLabel1)
                 .addGap(6, 6, 6)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -343,29 +394,20 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel2)
                 .addGap(4, 4, 4)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(sellSharesButton)
-                                .addComponent(sellSharesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(chartButton)
-                                .addComponent(jButton1)))))
-                .addContainerGap(15, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(textSellShare, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(textSellPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6))
+                    .addComponent(sellSharesButton))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        rightContainer.remove(this);
-        Component[] componentArray = rightContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        CardLayout layout = (CardLayout) rightContainer.getLayout();
-        layout.previous(rightContainer);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void textFieldPurchasedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldPurchasedActionPerformed
         // TODO add your handling code here:
@@ -383,26 +425,28 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
 
                 int noOfsahresPurshased = Integer.valueOf(textFieldPurchased.getText());
 
-                System.out.println("Outside if");
-                System.out.println(organization.getTotalNoOfshares());
-                
-                if (organization.getTotalNoOfshares() >= noOfsahresPurshased && customer.getBalance() >= noOfsahresPurshased * organization.getShareVale()) {
+                float total = noOfsahresPurshased * organization.getShareVale();
+                float agentComission = (total / 100) * this.agent.getBrokeragePercent();
+                float totalAmount = total + agentComission;
 
-                    System.out.println("Inside if");
+                if (customer.getBalance() >= totalAmount) {
+
                     PurchasedShares purchasedShares = this.customer.getPurchasedSharesDirectory().createAndAddPurchasedShares();
                     purchasedShares.setCompanyName(organization.getCompanyName());
                     purchasedShares.setNoPurchasedShares(noOfsahresPurshased);
                     purchasedShares.setAtPrice(organization.getShareVale());
-                    purchasedShares.setTotal(noOfsahresPurshased * organization.getShareVale());
-  
+                    purchasedShares.setTotal(total);
                     organization.setTotalNoOfshares(organization.getTotalNoOfshares() - noOfsahresPurshased);
+                    this.agent.setBrokeragePercent(this.agent.getTotalProfit() + agentComission);
 
                     this.populateTable();
                     this.populatePurchasedTable();
+                    this.customer.setBalance(this.customer.getBalance() - totalAmount);
+                    String amt = String.valueOf(this.customer.getBalance());
+                    this.labelAmountAvailable.setText(amt);
 
                 } else {
                     JOptionPane.showMessageDialog(null, "Please Enter Valid No. !!");
-
                 }
 
             }
@@ -415,14 +459,14 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void chartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chartButtonActionPerformed
         // TODO add your handling code here:
-   
-               DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-                for (PurchasedShares e : customer.getPurchasedSharesDirectory().getPurchasedSharesList()) {
-                        dataset.setValue(e.getNoPurchasedShares(), "Total Price", e.getCompanyName());
-                    
-                }
-            
-        JFreeChart chart =  ChartFactory.createBarChart3D("Shares Report", "Company Name", "No of shares purchased", dataset, PlotOrientation.VERTICAL, false, true, false);
+
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        for (PurchasedShares e : customer.getPurchasedSharesDirectory().getPurchasedSharesList()) {
+            dataset.setValue(e.getNoPurchasedShares(), "Total Price", e.getCompanyName());
+
+        }
+
+        JFreeChart chart = ChartFactory.createBarChart3D("Shares Report", "Company Name", "No of shares purchased", dataset, PlotOrientation.VERTICAL, false, true, false);
         chart.setBackgroundPaint(Color.GRAY);
         chart.getTitle().setPaint(Color.BLUE);
         CategoryPlot p = chart.getCategoryPlot();
@@ -441,30 +485,6 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_chartButtonActionPerformed
 
-    private void sellSharesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sellSharesButtonActionPerformed
-        // TODO add your handling code here:
-        int selectedRow = tablePurchasedCompany.getSelectedRow();
-        if (selectedRow >= 0) {
-            int selectionButton = JOptionPane.YES_NO_OPTION;
-            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure you want to sell ?", "Warning", selectionButton);
-            if (selectionResult == JOptionPane.YES_OPTION) {
-                PurchasedShares purchasedShares = this.customer.getPurchasedSharesDirectory().getPurchasedSharesList().get(selectedRow);
-             int noOfsahresPurshased = Integer.valueOf(textFieldPurchased.getText());
-
-                if(purchasedShares.getNoPurchasedShares() >= noOfsahresPurshased){
-                    purchasedShares = this.customer.getPurchasedSharesDirectory().sellPurchasedShares();
-                    organization.setCompanyName(organization.getCompanyName());
-                    organization.setTotalNoOfshares(organization.getTotalNoOfshares()+noOfsahresPurshased);
-                    organization.setShareVale(organization.getShareVale());
-                    //this.agent.setBrokeragePercent(this.agent.getSelectedOrganizationDirectoryList());
-  
-                       
-                 purchasedShares.setNoPurchasedShares(noOfsahresPurshased);
-                    
-                }
-            }
-    }//GEN-LAST:event_sellSharesButtonActionPerformed
-    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         File file = new File("H:\\StockTradingApplication\\xyz.xls");
@@ -477,7 +497,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
                 bw.write(tablePurchasedCompany.getColumnName(j) + "\t");
             }
             bw.newLine();
-            
+
             for (int i = 0; i < tablePurchasedCompany.getRowCount(); i++) {
                 for (int j = 0; j < tablePurchasedCompany.getColumnCount(); j++) {
                     System.out.println(tablePurchasedCompany.getValueAt(i, j).toString());
@@ -490,11 +510,60 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
             fw.close();
         } catch (IOException ex) {
             Logger.getLogger(CustomerWorkAreaJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(null, "Report Downloaded Successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
 
-    }
-    
+    private void textSellPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSellPriceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textSellPriceActionPerformed
+
+    private void sellSharesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sellSharesButtonActionPerformed
+        //        // TODO add your handling code here:
+
+        int selectedRow = tableCompany.getSelectedRow();
+        if (selectedRow >= 0) {
+            int selectionButton = JOptionPane.YES_NO_OPTION;
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to purchase ?", "Warning", selectionButton);
+            if (selectionResult == JOptionPane.YES_OPTION) {
+                Organization organization = this.agent.getSelectedOrganizationDirectoryList().getOrganizationList().get(selectedRow);
+
+                int noOfsahresPurshased = Integer.valueOf(textFieldPurchased.getText());
+
+                float total = noOfsahresPurshased * organization.getShareVale();
+                float agentComission = (total / 100) * this.agent.getBrokeragePercent();
+                float totalAmount = total + agentComission;
+
+                if (customer.getBalance() >= totalAmount) {
+
+                    PurchasedShares purchasedShares = this.customer.getPurchasedSharesDirectory().createAndAddPurchasedShares();
+                    purchasedShares.setCompanyName(organization.getCompanyName());
+                    purchasedShares.setNoPurchasedShares(noOfsahresPurshased);
+                    purchasedShares.setAtPrice(organization.getShareVale());
+                    purchasedShares.setTotal(total);
+                    organization.setTotalNoOfshares(organization.getTotalNoOfshares() - noOfsahresPurshased);
+                    this.agent.setBrokeragePercent(this.agent.getTotalProfit() + agentComission);
+
+                    this.populateTable();
+                    this.populatePurchasedTable();
+                    this.customer.setBalance(this.customer.getBalance() - totalAmount);
+                    String amt = String.valueOf(this.customer.getBalance());
+                    this.labelAmountAvailable.setText(amt);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please Enter Valid No. !!");
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a Row!!");
+        }
+
+    }//GEN-LAST:event_sellSharesButtonActionPerformed
+
+    private void textSellShareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSellShareActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textSellShareActionPerformed
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonPurchased;
     private javax.swing.JButton chartButton;
@@ -503,22 +572,26 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel enterpriseLabel2;
     private javax.swing.JLabel enterpriseLabel3;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel labelAgent;
     private javax.swing.JLabel labelAmountAvailable;
     private javax.swing.JLabel labelCustomer;
     private javax.swing.JLabel labelEnterprise;
     private javax.swing.JLabel lableNetwork;
     private javax.swing.JButton sellSharesButton;
-    private javax.swing.JTextField sellSharesTextField;
     private javax.swing.JTable tableCompany;
     private javax.swing.JTable tablePurchasedCompany;
+    private javax.swing.JTable tableSell;
     private javax.swing.JTextField textFieldPurchased;
+    private javax.swing.JTextField textSellPrice;
+    private javax.swing.JTextField textSellShare;
     // End of variables declaration//GEN-END:variables
 }

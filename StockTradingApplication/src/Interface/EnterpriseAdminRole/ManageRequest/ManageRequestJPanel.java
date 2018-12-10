@@ -15,8 +15,12 @@ import Business.User.UserAccount;
 import Business.WorkQueue.WorkQueue;
 import Business.WorkQueue.WorkRequest;
 import Utility.Constant;
+import java.awt.CardLayout;
+import java.awt.Component;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -46,6 +50,8 @@ public class ManageRequestJPanel extends javax.swing.JPanel {
         this.configureNetworkCombo();
 
         this.populateRecievedRequestTable(enterprise.getWorkQueueDirecoryRecieved());
+        this.populateSentTable(enterprise.getWorkQueueDirecorySent());
+        this.labelEnterprise.setText(enterprise.getEnterpriseName());
 
     }
 
@@ -94,6 +100,12 @@ public class ManageRequestJPanel extends javax.swing.JPanel {
         if (workQueue == null) {
             return;
         }
+         Collections.sort(workQueue.getWorkRequestList(), new Comparator<WorkRequest>() {
+            @Override
+            public int compare(WorkRequest o1, WorkRequest o2) {
+                return (int) (o2.getRequestDate().compareTo(o1.getRequestDate()));
+            }
+        });
 
         if (workQueue.getWorkRequestList() != null) {
             DateFormat dateFormat = new SimpleDateFormat("MMM-dd-YYYY");
@@ -101,13 +113,14 @@ public class ManageRequestJPanel extends javax.swing.JPanel {
             DefaultTableModel model = (DefaultTableModel) this.tableRecieved.getModel();
             model.setRowCount(0);
             for (WorkRequest workRequest : workQueue.getWorkRequestList()) {
-                Object[] row = new Object[6];
+                Object[] row = new Object[7];
                 row[0] = workRequest.getRequestRaiser();
                 row[1] = workRequest.getStatus();
                 row[2] = dateFormat.format(workRequest.getRequestDate());
                 row[3] = workRequest.getNetworkName();
                 row[4] = workRequest.getEnterpriseName();
                 row[5] = workRequest.getCompanyName();
+                row[6] = workRequest.getNoOfShare();
                 model.addRow(row);
             }
         }
@@ -118,6 +131,14 @@ public class ManageRequestJPanel extends javax.swing.JPanel {
         if (workQueue == null) {
             return;
         }
+        
+        Collections.sort(workQueue.getWorkRequestList(), new Comparator<WorkRequest>() {
+            @Override
+            public int compare(WorkRequest o1, WorkRequest o2) {
+                return (int) (o2.getRequestDate().compareTo(o1.getRequestDate()));
+            }
+        });
+
         if (workQueue.getWorkRequestList() != null) {
             DateFormat dateFormat = new SimpleDateFormat("MMM-dd-YYYY");
 
@@ -130,6 +151,8 @@ public class ManageRequestJPanel extends javax.swing.JPanel {
                 row[2] = workRequest.getNetworkName();
                 row[3] = workRequest.getEnterpriseName();
                 row[4] = workRequest.getCompanyName();
+                row[5] = workRequest.getNoOfShare();
+
                 model.addRow(row);
             }
         }
@@ -149,12 +172,16 @@ public class ManageRequestJPanel extends javax.swing.JPanel {
         tableCompany = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableRecieved = new javax.swing.JTable();
-        buttonRaiseRequest = new javax.swing.JButton();
+        buttonRaise = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         tabletSent = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
-        buttonRaiseRequest3 = new javax.swing.JButton();
-        buttonRaiseRequest4 = new javax.swing.JButton();
+        buttonApprove = new javax.swing.JButton();
+        buttonDecline = new javax.swing.JButton();
+        buttonBack = new javax.swing.JButton();
+        textFieldNoOfShares = new javax.swing.JTextField();
+        labelEnterprise = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         buttonRaiseRequest1.setText("Raise Request");
 
@@ -169,7 +196,7 @@ public class ManageRequestJPanel extends javax.swing.JPanel {
         });
 
         jLabel11.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        jLabel11.setText("Request Sent");
+        jLabel11.setText("Request Sent To");
 
         jLabel8.setText("Network:");
 
@@ -197,36 +224,33 @@ public class ManageRequestJPanel extends javax.swing.JPanel {
 
         tableRecieved.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Request Raiser", "Status", "Date", "Network", "Enterprise", "Compnay", "Shares"
+            }
+        ));
+        jScrollPane2.setViewportView(tableRecieved);
+
+        buttonRaise.setText("Raise Request");
+        buttonRaise.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRaiseActionPerformed(evt);
+            }
+        });
+
+        tabletSent.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Request Raiser", "Status", "Date", "Network", "Enterprise", "Compnay"
-            }
-        ));
-        jScrollPane2.setViewportView(tableRecieved);
-        if (tableRecieved.getColumnModel().getColumnCount() > 0) {
-            tableRecieved.getColumnModel().getColumn(0).setHeaderValue("Request ID");
-        }
-
-        buttonRaiseRequest.setText("Raise Request");
-        buttonRaiseRequest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonRaiseRequestActionPerformed(evt);
-            }
-        });
-
-        tabletSent.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Status", "Date", "Network", "Enterprise", "Compnay"
+                "Status", "Date", "Network", "Enterprise", "Compnay", "Shares"
             }
         ));
         jScrollPane4.setViewportView(tabletSent);
@@ -234,18 +258,42 @@ public class ManageRequestJPanel extends javax.swing.JPanel {
         jLabel12.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel12.setText("Request Recieved");
 
-        buttonRaiseRequest3.setText("Approve");
+        buttonApprove.setText("Approve");
+        buttonApprove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonApproveActionPerformed(evt);
+            }
+        });
 
-        buttonRaiseRequest4.setText("Decline");
+        buttonDecline.setText("Decline");
+        buttonDecline.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeclineActionPerformed(evt);
+            }
+        });
+
+        buttonBack.setText("<<Back");
+        buttonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBackActionPerformed(evt);
+            }
+        });
+
+        textFieldNoOfShares.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldNoOfSharesActionPerformed(evt);
+            }
+        });
+
+        labelEnterprise.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        labelEnterprise.setText("Enterprise");
+
+        jLabel1.setText("Shares:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addComponent(jLabel10)
-                .addGap(203, 795, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -275,19 +323,36 @@ public class ManageRequestJPanel extends javax.swing.JPanel {
                         .addComponent(jLabel11)
                         .addGap(256, 256, 256))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addComponent(buttonRaiseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textFieldNoOfShares, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonRaise, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttonRaiseRequest3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonApprove, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
-                .addComponent(buttonRaiseRequest4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonDecline, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(121, 121, 121))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addComponent(jLabel10)
+                        .addGap(218, 218, 218)
+                        .addComponent(labelEnterprise))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(buttonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(533, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel10)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(labelEnterprise))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
@@ -308,11 +373,17 @@ public class ManageRequestJPanel extends javax.swing.JPanel {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonRaiseRequest)
-                    .addComponent(buttonRaiseRequest3)
-                    .addComponent(buttonRaiseRequest4))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonApprove)
+                        .addComponent(buttonDecline))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonRaise)
+                        .addComponent(textFieldNoOfShares, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonBack)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -334,48 +405,161 @@ public class ManageRequestJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_comboBoxEnterpriseActionPerformed
 
-    private void buttonRaiseRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRaiseRequestActionPerformed
-        // TODO add your handling code here:
+    private WorkRequest getWorkRequest(int WorkRequestID, Enterprise enterprise) {
+        for (WorkRequest workRequest : enterprise.getWorkQueueDirecorySent().getWorkRequestList()) {
+            if (WorkRequestID == workRequest.getRequestID()) {
+                return workRequest;
+            }
+        }
+        return null;
+    }
 
-        int selectedRow = tableCompany.getSelectedRow();
+    private Enterprise getEnterpriseDetails(UserAccount useraccount) {
+
+        for (Network network : this.stockTrading.getNetworkList()) {
+            for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                for (UserAccount userAccount : enterprise.getUserAccountDirectory().getUserList()) {
+                    if (useraccount.getUserName().equals(userAccount.getUserName()) && useraccount.getPassword().equals(userAccount.getPassword())) {
+
+                        return enterprise;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    private void approveDecline(boolean isApprove) {
+        int selectedRow = tableRecieved.getSelectedRow();
         if (selectedRow >= 0) {
-            Network network = (Network) this.comboBoxNetwork.getSelectedItem();
-            Enterprise enterprise = (Enterprise) this.comboBoxEnterprise.getSelectedItem();
-            Organization organization = enterprise.getOrganizationDirectoryList().getOrganizationList().get(selectedRow);
+            WorkRequest workRequest = this.enterprise.getWorkQueueDirecoryRecieved().getWorkRequestList().get(selectedRow);
 
-            WorkRequest requestR = enterprise.getWorkQueueDirecoryRecieved().createWorkQueueAccount();
-            WorkRequest requestS = enterprise.getWorkQueueDirecorySent().createWorkQueueAccount();
+            for (Organization organization : this.enterprise.getOrganizationDirectoryList().getOrganizationList()) {
 
-            requestR.setSender(this.useraccount);
-            requestR.setStatus(Constant.RequestStatus.Pending);
-            requestR.setRequestRaiser(Constant.RequestRaiser.EnterpriseAdmin);
-            requestR.setNetworkName(network.getName());
-            requestR.setEnterpriseName(this.enterprise.getEnterpriseName());
-            requestR.setCompanyName(organization.getCompanyName());
+                if (organization.getCompanyName().endsWith(workRequest.getCompanyName())) {
 
-            requestS.setSender(this.useraccount);
-            requestS.setStatus(Constant.RequestStatus.Pending);
-            requestS.setRequestRaiser(Constant.RequestRaiser.EnterpriseAdmin);
-            requestS.setNetworkName(network.getName());
-            requestS.setEnterpriseName(enterprise.getEnterpriseName());
-            requestS.setCompanyName(organization.getCompanyName());
+                    Enterprise enterpriseSender = this.getEnterpriseDetails(workRequest.getSender());
+                    WorkRequest requestSender = this.getWorkRequest(workRequest.getRequestID(), enterpriseSender);
+                    if (isApprove) {
 
-            this.populateSentTable(enterprise.getWorkQueueDirecorySent());
+                        boolean createNew = true;
+                        for (Organization o : enterpriseSender.getOrganizationDirectoryList().getOrganizationList()) {
+
+                            if (o.getCompanyName().equalsIgnoreCase(workRequest.getCompanyName())) {
+                                createNew = false;
+                                o.setTotalNoOfshares(o.getTotalNoOfshares() + workRequest.getNoOfShare());
+                                organization.setTotalNoOfshares(organization.getTotalNoOfshares() - workRequest.getNoOfShare());
+                            }
+                        }
+
+                        if (createNew) {
+                            Organization org = new Organization();
+                            org.setCompnayType(organization.getCompnayType());
+                            org.setCompanyName(organization.getCompanyName());
+                            org.setFaceValue(organization.getFaceValue());
+                            org.setShareVale(organization.getShareVale());
+                            org.setTotalNoOfshares(workRequest.getNoOfShare());
+                            organization.setTotalNoOfshares(organization.getTotalNoOfshares() - workRequest.getNoOfShare());
+                            enterpriseSender.getOrganizationDirectoryList().addOrganization(org);
+
+                        }
+                    }
+                    workRequest.setStatus(isApprove ? Constant.RequestStatus.Approve : Constant.RequestStatus.Decline);
+                    requestSender.setStatus(isApprove ? Constant.RequestStatus.Approve : Constant.RequestStatus.Decline);
+                    break;
+                }
+            }
+            this.populateRecievedRequestTable(enterprise.getWorkQueueDirecoryRecieved());
         } else {
             JOptionPane.showMessageDialog(null, "Please select a Company!!");
         }
 
+    }
 
-    }//GEN-LAST:event_buttonRaiseRequestActionPerformed
+    private void buttonRaiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRaiseActionPerformed
+        // TODO add your handling code here:
+
+        try {
+            int selectedRow = tableCompany.getSelectedRow();
+            if (selectedRow >= 0) {
+                Network network = (Network) this.comboBoxNetwork.getSelectedItem();
+                Enterprise enterprise = (Enterprise) this.comboBoxEnterprise.getSelectedItem();
+                Organization organization = enterprise.getOrganizationDirectoryList().getOrganizationList().get(selectedRow);
+                int noOfSahres = Integer.parseInt(this.textFieldNoOfShares.getText());
+                if (organization.getTotalNoOfshares() > noOfSahres && noOfSahres > 0) {
+
+                    int randomNo = (int) (Math.random() * 50 + 1);
+
+                    WorkRequest requestR = enterprise.getWorkQueueDirecoryRecieved().createWorkQueueAccount();
+                    WorkRequest requestS = this.enterprise.getWorkQueueDirecorySent().createWorkQueueAccount();
+
+                    requestR.setSender(this.useraccount);
+                    requestR.setStatus(Constant.RequestStatus.Pending);
+                    requestR.setRequestRaiser(Constant.RequestRaiser.EnterpriseAdmin);
+                    requestR.setNetworkName(network.getName());
+                    requestR.setEnterpriseName(this.enterprise.getEnterpriseName());
+                    requestR.setCompanyName(organization.getCompanyName());
+                    requestR.setRequestID(randomNo);
+                    requestR.setNoOfShare(noOfSahres);
+
+                    requestS.setSender(this.useraccount);
+                    requestS.setStatus(Constant.RequestStatus.Pending);
+                    requestS.setRequestRaiser(Constant.RequestRaiser.EnterpriseAdmin);
+                    requestS.setNetworkName(network.getName());
+                    requestS.setEnterpriseName(enterprise.getEnterpriseName());
+                    requestS.setCompanyName(organization.getCompanyName());
+                    requestS.setRequestID(randomNo);
+                    requestS.setNoOfShare(noOfSahres);
+
+                    this.populateSentTable(this.enterprise.getWorkQueueDirecorySent());
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please enter correct on of shares");
+
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Please select a Company!!");
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Please enter valid value!!");
+        }
+
+
+    }//GEN-LAST:event_buttonRaiseActionPerformed
+
+    private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
+        // TODO add your handling code here:
+        rightContainer.remove(this);
+        Component[] componentArray = rightContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        CardLayout layout = (CardLayout) rightContainer.getLayout();
+        layout.previous(rightContainer);
+    }//GEN-LAST:event_buttonBackActionPerformed
+
+    private void textFieldNoOfSharesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldNoOfSharesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldNoOfSharesActionPerformed
+
+    private void buttonApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonApproveActionPerformed
+        // TODO add your handling code here:
+        this.approveDecline(true);
+    }//GEN-LAST:event_buttonApproveActionPerformed
+
+    private void buttonDeclineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeclineActionPerformed
+        // TODO add your handling code here:
+        this.approveDecline(false);
+    }//GEN-LAST:event_buttonDeclineActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonRaiseRequest;
+    private javax.swing.JButton buttonApprove;
+    private javax.swing.JButton buttonBack;
+    private javax.swing.JButton buttonDecline;
+    private javax.swing.JButton buttonRaise;
     private javax.swing.JButton buttonRaiseRequest1;
-    private javax.swing.JButton buttonRaiseRequest3;
-    private javax.swing.JButton buttonRaiseRequest4;
     private javax.swing.JComboBox comboBoxEnterprise;
     private javax.swing.JComboBox comboBoxNetwork;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -384,8 +568,10 @@ public class ManageRequestJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JLabel labelEnterprise;
     private javax.swing.JTable tableCompany;
     private javax.swing.JTable tableRecieved;
     private javax.swing.JTable tabletSent;
+    private javax.swing.JTextField textFieldNoOfShares;
     // End of variables declaration//GEN-END:variables
 }

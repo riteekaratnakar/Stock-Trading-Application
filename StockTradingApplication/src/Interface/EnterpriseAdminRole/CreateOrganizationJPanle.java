@@ -62,13 +62,10 @@ public class CreateOrganizationJPanle extends javax.swing.JPanel {
         buttonAddOrganization4 = new javax.swing.JButton();
         textFieldCompnayName3 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setLayout(null);
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel8.setLayout(null);
 
         tableCompany4.setBackground(new java.awt.Color(204, 204, 255));
         tableCompany4.setModel(new javax.swing.table.DefaultTableModel(
@@ -84,59 +81,38 @@ public class CreateOrganizationJPanle extends javax.swing.JPanel {
         ));
         jScrollPane6.setViewportView(tableCompany4);
 
-        jPanel8.add(jScrollPane6);
-        jScrollPane6.setBounds(10, 70, 1143, 127);
-
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel24.setText("Comapny Type:");
-        jPanel8.add(jLabel24);
-        jLabel24.setBounds(241, 231, 100, 17);
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel25.setText("Company Name:");
-        jPanel8.add(jLabel25);
-        jLabel25.setBounds(241, 269, 104, 17);
 
         textFieldCompnayType4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textFieldCompnayType4ActionPerformed(evt);
             }
         });
-        jPanel8.add(textFieldCompnayType4);
-        textFieldCompnayType4.setBounds(412, 221, 129, 30);
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel26.setText("Total Number of Shares:");
-        jPanel8.add(jLabel26);
-        jLabel26.setBounds(241, 307, 149, 17);
 
         textFieldNumberOfShares3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textFieldNumberOfShares3ActionPerformed(evt);
             }
         });
-        jPanel8.add(textFieldNumberOfShares3);
-        textFieldNumberOfShares3.setBounds(412, 297, 129, 30);
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel27.setText("Face Value:");
-        jPanel8.add(jLabel27);
-        jLabel27.setBounds(241, 345, 69, 17);
 
         textFieldFaceValue3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textFieldFaceValue3ActionPerformed(evt);
             }
         });
-        jPanel8.add(textFieldFaceValue3);
-        textFieldFaceValue3.setBounds(412, 335, 129, 30);
-        jPanel8.add(textFieldValuePerShare3);
-        textFieldValuePerShare3.setBounds(412, 373, 129, 30);
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel28.setText("Share Per Value");
-        jPanel8.add(jLabel28);
-        jLabel28.setBounds(241, 383, 95, 17);
 
         buttonBack4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         buttonBack4.setText("<<BACK");
@@ -145,8 +121,6 @@ public class CreateOrganizationJPanle extends javax.swing.JPanel {
                 buttonBack4buttonBackActionPerformed(evt);
             }
         });
-        jPanel8.add(buttonBack4);
-        buttonBack4.setBounds(61, 415, 95, 25);
 
         buttonAddOrganization4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         buttonAddOrganization4.setText("Add Organization");
@@ -155,28 +129,122 @@ public class CreateOrganizationJPanle extends javax.swing.JPanel {
                 buttonAddOrganization4buttonAddOrganizationActionPerformed(evt);
             }
         });
-        jPanel8.add(buttonAddOrganization4);
-        buttonAddOrganization4.setBounds(494, 415, 153, 25);
 
         textFieldCompnayName3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textFieldCompnayName3ActionPerformed(evt);
             }
         });
-        jPanel8.add(textFieldCompnayName3);
-        textFieldCompnayName3.setBounds(412, 259, 129, 30);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Add Companies");
-        jPanel8.add(jLabel1);
-        jLabel1.setBounds(374, 35, 165, 17);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/EnterpriseAdminRole/stock.jpg"))); // NOI18N
-        jPanel8.add(jLabel2);
-        jLabel2.setBounds(-60, 0, 780, 460);
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(434, 434, 434)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(472, 472, 472)
+                        .addComponent(textFieldNumberOfShares3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(301, 301, 301)
+                        .addComponent(jLabel27)
+                        .addGap(102, 102, 102)
+                        .addComponent(textFieldFaceValue3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(301, 301, 301)
+                        .addComponent(jLabel28))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(472, 472, 472)
+                        .addComponent(textFieldValuePerShare3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(301, 301, 301)
+                        .addComponent(jLabel26))
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addGap(301, 301, 301)
+                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel8Layout.createSequentialGroup()
+                                    .addComponent(jLabel24)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(textFieldCompnayType4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel25)))
+                        .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addGap(472, 472, 472)
+                            .addComponent(textFieldCompnayName3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(77, Short.MAX_VALUE))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addComponent(buttonBack4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonAddOrganization4)
+                .addGap(267, 267, 267))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(269, 269, 269)
+                        .addComponent(jLabel25))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(307, 307, 307)
+                        .addComponent(jLabel26))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(jLabel1)
+                                .addGap(28, 28, 28)
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(107, 107, 107)
+                                .addComponent(textFieldNumberOfShares3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel27))
+                                    .addComponent(textFieldFaceValue3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel28))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(211, 211, 211)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(textFieldCompnayType4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel24))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                        .addGap(132, 132, 132)
+                                        .addComponent(textFieldValuePerShare3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(textFieldCompnayName3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(buttonAddOrganization4)
+                            .addComponent(buttonBack4))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
-        add(jPanel8);
-        jPanel8.setBounds(0, 0, 0, 460);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 260, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void textFieldCompnayType4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldCompnayType4ActionPerformed
@@ -267,7 +335,6 @@ public class CreateOrganizationJPanle extends javax.swing.JPanel {
     private javax.swing.JButton buttonAddOrganization4;
     private javax.swing.JButton buttonBack4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;

@@ -24,10 +24,27 @@ public class WorkRequest {
     String networkName;
     String EnterpriseName;
     String CompanyName;
+    private int requestID;
+    private int noOfShare;
 
     public WorkRequest() {
         requestDate = new Date();
+    }
 
+    public int getRequestID() {
+        return requestID;
+    }
+
+    public void setRequestID(int requestID) {
+        this.requestID = requestID;
+    }
+
+    public int getNoOfShare() {
+        return noOfShare;
+    }
+
+    public void setNoOfShare(int noOfShare) {
+        this.noOfShare = noOfShare;
     }
 
     public RequestRaiser getRequestRaiser() {
@@ -81,7 +98,4 @@ public class WorkRequest {
     public void setCompanyName(String CompanyName) {
         this.CompanyName = CompanyName;
     }
-
-    
-
 }

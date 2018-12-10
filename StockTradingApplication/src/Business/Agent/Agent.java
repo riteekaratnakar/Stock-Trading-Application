@@ -6,6 +6,7 @@
 package Business.Agent;
 
 import Business.Customer.CustomerDirectory;
+import Business.Customer.SellShareDirectory;
 import Business.Organization.OrganizationDirectory;
 import Business.User.*;
 
@@ -15,8 +16,6 @@ import Business.User.*;
  */
 public class Agent {
 
-    
-
     String name;
     String email;
     float brokeragePercent;
@@ -24,11 +23,21 @@ public class Agent {
     OrganizationDirectory selectedOrganizationDirectoryList;
     UserAccount userAccount;
     CustomerDirectory customerDirectoryList;
+    SellShareDirectory sellShareDirectoryList;
 
-    public Agent() { 
+    public Agent() {
         this.selectedOrganizationDirectoryList = new OrganizationDirectory();
         this.userAccount = new UserAccount();
         this.customerDirectoryList = new CustomerDirectory();
+        this.sellShareDirectoryList = new SellShareDirectory();
+    }
+
+    public SellShareDirectory getSellShareDirectoryList() {
+        return sellShareDirectoryList;
+    }
+
+    public void setSellShareDirectoryList(SellShareDirectory sellShareDirectoryList) {
+        this.sellShareDirectoryList = sellShareDirectoryList;
     }
 
     public CustomerDirectory getCustomerDirectoryList() {
@@ -38,7 +47,7 @@ public class Agent {
     public void setCustomerDirectoryList(CustomerDirectory customerDirectoryList) {
         this.customerDirectoryList = customerDirectoryList;
     }
-    
+
     public UserAccount getUserAccount() {
         return userAccount;
     }
@@ -92,9 +101,4 @@ public class Agent {
         return this.name; //To change body of generated methods, choose Tools | Templates.
     }
 
-    
-    
-
-    
-    
 }

@@ -120,7 +120,7 @@ public class CreateCustomerJPanel extends javax.swing.JPanel {
             }
         });
         add(createJButton);
-        createJButton.setBounds(470, 500, 110, 25);
+        createJButton.setBounds(470, 500, 110, 29);
 
         backJButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         backJButton.setText("<< Back");
@@ -130,7 +130,7 @@ public class CreateCustomerJPanel extends javax.swing.JPanel {
             }
         });
         add(backJButton);
-        backJButton.setBounds(300, 500, 110, 25);
+        backJButton.setBounds(300, 500, 110, 29);
 
         accountBalanceJTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,7 +148,7 @@ public class CreateCustomerJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setText("Create Cutomer ");
         add(jLabel1);
-        jLabel1.setBounds(340, 190, 144, 24);
+        jLabel1.setBounds(340, 190, 152, 22);
 
         agentJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         agentJComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -376,15 +376,6 @@ public class CreateCustomerJPanel extends javax.swing.JPanel {
     }
     }//GEN-LAST:event_createJButtonActionPerformed
    
-    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-
-        rightContainer.remove(this);
-        Component[] componentArray = rightContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        CardLayout layout = (CardLayout) rightContainer.getLayout();
-        layout.previous(rightContainer);
-    }//GEN-LAST:event_backJButtonActionPerformed
-
     private void nameJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameJTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameJTextFieldActionPerformed
@@ -402,6 +393,15 @@ public class CreateCustomerJPanel extends javax.swing.JPanel {
 
 
     }//GEN-LAST:event_agentJComboBoxActionPerformed
+
+    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
+
+        rightContainer.remove(this);
+        Component[] componentArray = rightContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        CardLayout layout = (CardLayout) rightContainer.getLayout();
+        layout.previous(rightContainer);
+    }//GEN-LAST:event_backJButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

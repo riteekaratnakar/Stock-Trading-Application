@@ -5,16 +5,28 @@
  */
 package Business.Customer;
 
+import Business.User.UserAccount;
+import Utility.Constant;
+
 /**
  *
  * @author Waqar
  */
-public class PurchasedShares {
+public class SellShare {
 
     String companyName;
     int noPurchasedShares;
     float atPrice;
-    float total;
+    UserAccount customerAccount;
+    Constant.RequestStatus requestStatus;
+
+    public Constant.RequestStatus getRequestStatus() {
+        return requestStatus;
+    }
+
+    public void setRequestStatus(Constant.RequestStatus requestStatus) {
+        this.requestStatus = requestStatus;
+    }
 
     public String getCompanyName() {
         return companyName;
@@ -40,22 +52,15 @@ public class PurchasedShares {
         this.atPrice = atPrice;
     }
 
-    public float getTotal() {
-        return total;
-    }
-
-    public void setTotal(float total) {
-        this.total = total;
-    }
-   
     public void setAtPrice(int atPrice) {
         this.atPrice = atPrice;
     }
 
-    
-
-    public void setTotal(int total) {
-        this.total = total;
+    public UserAccount getCustomerAccount() {
+        return customerAccount;
     }
-    
+
+    public void setCustomerAccount(UserAccount customerAccount) {
+        this.customerAccount = customerAccount;
+    }
 }

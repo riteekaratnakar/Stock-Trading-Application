@@ -26,6 +26,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import Utility.Validation;
+
 /**
  *
  * @author Waqar
@@ -39,7 +40,6 @@ public class CreateAgentJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateAgentJPanel
      */
-  
     public CreateAgentJPanel(JPanel rightContainer, Enterprise enterprise) {
         initComponents();
 
@@ -49,9 +49,7 @@ public class CreateAgentJPanel extends javax.swing.JPanel {
         this.populateAgentTable();
     }
 
-
-
-   public void mail() {
+    public void mail() {
 
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
@@ -62,10 +60,10 @@ public class CreateAgentJPanel extends javax.swing.JPanel {
 
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("riteekaratnakar95@gmail.com", "Riteeka_30");
-            }
-        }
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication("riteekaratnakar95@gmail.com", "Riteeka_30");
+                    }
+                }
         );
         try {
             Message message = new MimeMessage(session);
@@ -80,65 +78,59 @@ public class CreateAgentJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-     
-    
-    
-   
-       private boolean passwordRegex(String key) {
-       Pattern userName = Pattern.compile("(?=.*[A-Za-z0-9])(?=.*[+_$]).{5,15}");
-       Matcher m = userName.matcher(key);
-       boolean matches = m.matches();
-       return matches;
-   }
 
- 
-  private boolean matchPassword(String key) {
-       boolean match = false;
-       if (key.equals(passwordJPasswordField.getText())) {
-           return true;
-       } else {
-           return false;
-       }
-   }
-  
-  
-   private boolean isEmpty(String value) {
-       Pattern userName = Pattern.compile("^(?=\\s*\\S).*$");
-       Matcher m = userName.matcher(value);
-       boolean matches = m.matches();
-       return !matches;
-   }
- 
- 
-  /* private boolean validations() {
+    private boolean passwordRegex(String key) {
+        Pattern userName = Pattern.compile("(?=.*[A-Za-z0-9])(?=.*[+_$]).{5,15}");
+        Matcher m = userName.matcher(key);
+        boolean matches = m.matches();
+        return matches;
+    }
 
-       usernameJTextField.setBackground(Color.decode("#FFFFFF"));
-       passwordJPasswordField.setBackground(Color.decode("#FFFFFF"));
-       retypepasswordJPasswordField.setBackground(Color.decode("#FFFFFF"));
-       brokerageTextField.setBackground(Color.decode("#FFFFFF"));
-       emailTextField.setBackground(Color.decode("#FFFFFF"));
-
-        if ( this.isEmpty(usernameJTextField.getText()) || this.isEmpty(brokerageTextField.getText())|| this.isEmpty(emailTextField.getText())) {
-           JOptionPane.showMessageDialog(this, "Please enter valid inputs");
-       //    usernameJTextField.setBackground(Color.decode("#FF9999"));
-           passwordJPasswordField.setBackground(Color.decode("#FFFFFF"));
-           retypepasswordJPasswordField.setBackground(Color.decode("#FFFFFF"));
-           brokerageTextField.setBackground(Color.decode("#FFFFFF"));
-           emailTextField.setBackground(Color.decode("#FFFFFF"));
-           return false;
+    private boolean matchPassword(String key) {
+        boolean match = false;
+        if (key.equals(passwordJPasswordField.getText())) {
+            return true;
+        } else {
+            return false;
         }
-           else if (!(passwordRegex(passwordJPasswordField.getText())) || this.isEmpty(passwordJPasswordField.getText())) {
-           JOptionPane.showMessageDialog(this, "Enter valid Password.");
-           passwordJPasswordField.setBackground(Color.decode("#FF9999"));
-           return false;
-       } else if (!(matchPassword(retypepasswordJPasswordField.getText()))) {
-           JOptionPane.showMessageDialog(this, "Passwords not matching.");
-           retypepasswordJPasswordField.setBackground(Color.decode("#FF9999"));
-           return false;
-       }
-       return true;
+    }
 
-   } */
+    private boolean isEmpty(String value) {
+        Pattern userName = Pattern.compile("^(?=\\s*\\S).*$");
+        Matcher m = userName.matcher(value);
+        boolean matches = m.matches();
+        return !matches;
+    }
+
+    /* private boolean validations() {
+
+     usernameJTextField.setBackground(Color.decode("#FFFFFF"));
+     passwordJPasswordField.setBackground(Color.decode("#FFFFFF"));
+     retypepasswordJPasswordField.setBackground(Color.decode("#FFFFFF"));
+     brokerageTextField.setBackground(Color.decode("#FFFFFF"));
+     emailTextField.setBackground(Color.decode("#FFFFFF"));
+
+     if ( this.isEmpty(usernameJTextField.getText()) || this.isEmpty(brokerageTextField.getText())|| this.isEmpty(emailTextField.getText())) {
+     JOptionPane.showMessageDialog(this, "Please enter valid inputs");
+     //    usernameJTextField.setBackground(Color.decode("#FF9999"));
+     passwordJPasswordField.setBackground(Color.decode("#FFFFFF"));
+     retypepasswordJPasswordField.setBackground(Color.decode("#FFFFFF"));
+     brokerageTextField.setBackground(Color.decode("#FFFFFF"));
+     emailTextField.setBackground(Color.decode("#FFFFFF"));
+     return false;
+     }
+     else if (!(passwordRegex(passwordJPasswordField.getText())) || this.isEmpty(passwordJPasswordField.getText())) {
+     JOptionPane.showMessageDialog(this, "Enter valid Password.");
+     passwordJPasswordField.setBackground(Color.decode("#FF9999"));
+     return false;
+     } else if (!(matchPassword(retypepasswordJPasswordField.getText()))) {
+     JOptionPane.showMessageDialog(this, "Passwords not matching.");
+     retypepasswordJPasswordField.setBackground(Color.decode("#FF9999"));
+     return false;
+     }
+     return true;
+
+     } */
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -197,7 +189,7 @@ public class CreateAgentJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel1.setText("List of available companies");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(54, 206, 189, 16);
+        jLabel1.setBounds(54, 206, 198, 17);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Username:");
@@ -228,7 +220,7 @@ public class CreateAgentJPanel extends javax.swing.JPanel {
             }
         });
         jPanel1.add(backJButton);
-        backJButton.setBounds(54, 463, 91, 25);
+        backJButton.setBounds(54, 463, 103, 29);
 
         createJButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         createJButton.setText("Create");
@@ -238,7 +230,7 @@ public class CreateAgentJPanel extends javax.swing.JPanel {
             }
         });
         jPanel1.add(createJButton);
-        createJButton.setBounds(473, 463, 253, 25);
+        createJButton.setBounds(473, 463, 253, 29);
         jPanel1.add(emailTextField);
         emailTextField.setBounds(590, 346, 136, 30);
 
@@ -274,7 +266,7 @@ public class CreateAgentJPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel2.setText("List of Agents");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(424, 11, 98, 16);
+        jLabel2.setBounds(424, 11, 102, 17);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Re-type Password:");
@@ -292,70 +284,56 @@ public class CreateAgentJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createJButtonActionPerformed
-     //  if(validations() ){
-        try{ 
-        String username = usernameJTextField.getText();
-        String password = String.valueOf(passwordJPasswordField.getPassword());
-        String name = nameJTextField.getText();
-        String retypePassword = String.valueOf(retypepasswordJPasswordField.getPassword());
-         email = emailTextField.getText();
-        float brokerage = Float.parseFloat(brokerageTextField.getText());
+        //  if(validations() ){
+        try {
+            String username = usernameJTextField.getText();
+            String password = String.valueOf(passwordJPasswordField.getPassword());
+            String name = nameJTextField.getText();
+            String retypePassword = String.valueOf(retypepasswordJPasswordField.getPassword());
+            email = emailTextField.getText();
+            float brokerage = Float.parseFloat(brokerageTextField.getText());
 
-        if(username.length() == 0 || username == null || password.length() == 0 || password == null || name.length() == 0 || retypePassword.length() ==0 || email.length() == 0){
-            JOptionPane.showMessageDialog(null, "Please complete all required fields");
+            if (username.length() == 0 || username == null || password.length() == 0 || password == null || name.length() == 0 || retypePassword.length() == 0 || email.length() == 0) {
+                JOptionPane.showMessageDialog(null, "Please complete all required fields");
+            } else if (!Validation.isStringOnlyAlphabet(nameJTextField.getText())) {
+                JOptionPane.showMessageDialog(null, "Please enter a valid text");
+
+            } else if (String.valueOf(brokerage).matches("[a-zA-Z]")) {
+                JOptionPane.showMessageDialog(null, "Please Enter Numeric Values");
+            } else if (!Validation.validateTextFieldForPercentage(brokerageTextField)) {
+                JOptionPane.showMessageDialog(null, "Please enter valid brokerage");
+            } else if (!Validation.checkUniquenessOfUserName(username, enterprise)) {
+                JOptionPane.showMessageDialog(null, "Username Already Exists");
+            } else if (!Validation.validateTextFieldsForEmailId(emailTextField)) {
+                JOptionPane.showMessageDialog(null, "Please enter valid email -id ");
+            } else if (!password.equals(retypePassword)) {
+                JOptionPane.showMessageDialog(null, "Password does not match");
+            } else if (!(passwordRegex(passwordJPasswordField.getText()))) {
+                JOptionPane.showMessageDialog(this, "Enter valid Password.");
+                passwordJPasswordField.setBackground(Color.decode("#FF9999"));
+            } else {
+                Agent agent = enterprise.getAgentDirectoryList().createAndAddAgent();
+                agent.getUserAccount().setName(name);
+                agent.getUserAccount().setUserName(username);
+                agent.getUserAccount().setPassword(password);
+                agent.getUserAccount().setType(UserType.Agent);
+                agent.setName(name);
+                agent.setBrokeragePercent(brokerage);
+                agent.setEmail(email);
+                for (int selectedRow : this.tableCompany.getSelectedRows()) {
+                    Organization obj = this.enterprise.getOrganizationDirectoryList().getOrganizationList().get(selectedRow);
+                    agent.getSelectedOrganizationDirectoryList().addOrganization(obj);
+                }
+                this.populateAgentTable();
+                
+                mail();
+
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Please enter valid inputs", "Incorrect Input", JOptionPane.WARNING_MESSAGE);
         }
-        else if(!Validation.isStringOnlyAlphabet(nameJTextField.getText())){
-            JOptionPane.showMessageDialog(null, "Please enter a valid text");
-            
-        }
-        else if(String.valueOf(brokerage).matches("[a-zA-Z]")){
-         JOptionPane.showMessageDialog(null, "Please Enter Numeric Values");
-        }
-        else if(!Validation.validateTextFieldForPercentage(brokerageTextField)){
-           JOptionPane.showMessageDialog(null, "Please enter valid brokerage");
-        }
-         else if(!Validation.checkUniquenessOfUserName(username, enterprise)){
-            JOptionPane.showMessageDialog(null, "Username Already Exists");
-        } 
-        else if(!Validation.validateTextFieldsForEmailId(emailTextField)){
-            JOptionPane.showMessageDialog(null, "Please enter valid email -id ");
-        }
-        else if(!password.equals(retypePassword)){
-            JOptionPane.showMessageDialog(null, "Password does not match");
-        }
-        else if(!(passwordRegex(passwordJPasswordField.getText()))){
-        JOptionPane.showMessageDialog(this, "Enter valid Password.");
-           passwordJPasswordField.setBackground(Color.decode("#FF9999"));
-        }
-        else{
-        Agent agent = enterprise.getAgentDirectoryList().createAndAddAgent();
-        agent.getUserAccount().setName(name);
-        agent.getUserAccount().setUserName(username);
-        agent.getUserAccount().setPassword(password);
-        agent.getUserAccount().setType(UserType.Agent);
-        agent.setName(name);
-        agent.setBrokeragePercent(brokerage);
-        agent.setEmail(email);
-        mail();
-    
-        for (int selectedRow : this.tableCompany.getSelectedRows()) {
-            Organization obj = this.enterprise.getOrganizationDirectoryList().getOrganizationList().get(selectedRow);
-            agent.getSelectedOrganizationDirectoryList().addOrganization(obj);
-        }
-        this.populateAgentTable();
-        
-        for (int selectedRow : this.tableCompany.getSelectedRows()) {
-            Organization obj = this.enterprise.getOrganizationDirectoryList().getOrganizationList().get(selectedRow);
-            agent.getSelectedOrganizationDirectoryList().addOrganization(obj);
-        }
-        this.populateAgentTable();
-       }
-        }
-    catch(NumberFormatException e){
-        JOptionPane.showMessageDialog(null, "Please enter valid inputs","Incorrect Input", JOptionPane.WARNING_MESSAGE);
-    }
-       
-      
+
+
     }//GEN-LAST:event_createJButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -366,13 +344,12 @@ public class CreateAgentJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) rightContainer.getLayout();
         layout.previous(rightContainer);
 
-
     }//GEN-LAST:event_backJButtonActionPerformed
 
-       private void populateTable() {
+    private void populateTable() {
         DefaultTableModel model = (DefaultTableModel) this.tableCompany.getModel();
         model.setRowCount(0);
-           System.out.println(enterprise.getOrganizationDirectoryList().getOrganizationList());
+        System.out.println(enterprise.getOrganizationDirectoryList().getOrganizationList());
         for (Organization organization : this.enterprise.getOrganizationDirectoryList().getOrganizationList()) {
             Object[] row = new Object[2];
             row[0] = organization.getCompnayType();
