@@ -45,36 +45,44 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
 
+        btnManageNetwork.setBackground(new java.awt.Color(204, 255, 204));
+        btnManageNetwork.setFont(new java.awt.Font("Segoe UI Emoji", 1, 11)); // NOI18N
+        btnManageNetwork.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/SystemAdminWorkArea/icons8_Network_50px_1.png"))); // NOI18N
         btnManageNetwork.setText("CREATE NETWORK");
-        btnManageNetwork.setBorder(null);
+        btnManageNetwork.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnManageNetwork.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageNetworkActionPerformed(evt);
             }
         });
         jPanel1.add(btnManageNetwork);
-        btnManageNetwork.setBounds(380, 81, 180, 40);
+        btnManageNetwork.setBounds(380, 81, 240, 40);
 
+        btnManageEnterprise.setBackground(new java.awt.Color(204, 255, 204));
+        btnManageEnterprise.setFont(new java.awt.Font("Segoe UI Emoji", 1, 11)); // NOI18N
+        btnManageEnterprise.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/SystemAdminWorkArea/icons8_Stacked_Organizational_Chart_Highlighted_First_Node_50px.png"))); // NOI18N
         btnManageEnterprise.setText("CREATE ENTERPRISE");
-        btnManageEnterprise.setBorder(null);
-        btnManageEnterprise.setBorderPainted(false);
+        btnManageEnterprise.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnManageEnterprise.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageEnterpriseActionPerformed(evt);
             }
         });
         jPanel1.add(btnManageEnterprise);
-        btnManageEnterprise.setBounds(380, 140, 180, 40);
+        btnManageEnterprise.setBounds(380, 140, 240, 40);
 
+        btnManageAdmin.setBackground(new java.awt.Color(204, 255, 204));
+        btnManageAdmin.setFont(new java.awt.Font("Segoe UI Emoji", 1, 11)); // NOI18N
+        btnManageAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/SystemAdminWorkArea/icons8_Administrator_Male_52px.png"))); // NOI18N
         btnManageAdmin.setText("CREATE ENTERPRISE ADMIN");
-        btnManageAdmin.setBorder(null);
+        btnManageAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnManageAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageAdminActionPerformed(evt);
             }
         });
         jPanel1.add(btnManageAdmin);
-        btnManageAdmin.setBounds(380, 200, 180, 40);
+        btnManageAdmin.setBounds(380, 200, 240, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/SystemAdminWorkArea/stock.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");

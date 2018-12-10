@@ -9,6 +9,7 @@ import Business.Enterprice.Enterprise;
 import Business.Network.Network;
 import Business.StockTrading;
 import Utility.Constant.EnterpriseType;
+import Utility.Validation;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JPanel;
@@ -60,8 +61,11 @@ public class CreateEnterprice extends javax.swing.JPanel {
         submitJButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         enterpriseTypeJComboBox1 = new javax.swing.JComboBox();
+        jLabel5 = new javax.swing.JLabel();
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setLayout(null);
 
         enterpriseJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -84,54 +88,76 @@ public class CreateEnterprice extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(enterpriseJTable);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 58, 523, 95));
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(39, 58, 523, 95);
 
         networkJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 networkJComboBoxActionPerformed(evt);
             }
         });
-        jPanel1.add(networkJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 198, 136, -1));
+        jPanel1.add(networkJComboBox);
+        networkJComboBox.setBounds(237, 198, 136, 30);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Network");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 202, -1, -1));
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(88, 202, 51, 17);
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Enterprise Type");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 260, -1, -1));
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(88, 260, 96, 17);
 
-        jPanel1.add(countryTypeJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 301, 136, -1));
+        jPanel1.add(countryTypeJComboBox);
+        countryTypeJComboBox.setBounds(237, 301, 136, 30);
 
         nameJTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameJTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 360, 136, -1));
+        jPanel1.add(nameJTextField);
+        nameJTextField.setBounds(237, 350, 136, 30);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Name");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 366, -1, -1));
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(88, 366, 35, 17);
 
+        backJButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         backJButton.setText("<< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 406, -1, -1));
+        jPanel1.add(backJButton);
+        backJButton.setBounds(88, 406, 91, 25);
 
+        submitJButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         submitJButton.setText("Create");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitJButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 406, -1, -1));
+        jPanel1.add(submitJButton);
+        submitJButton.setBounds(237, 406, 79, 25);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Country");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 305, -1, -1));
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(88, 305, 51, 17);
 
         enterpriseTypeJComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Iternational", "Domestic" }));
-        jPanel1.add(enterpriseTypeJComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 256, 136, -1));
+        jPanel1.add(enterpriseTypeJComboBox1);
+        enterpriseTypeJComboBox1.setBounds(237, 256, 136, 30);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/SystemAdminWorkArea/stock.jpg"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(-80, -30, 810, 610);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -139,11 +165,12 @@ public class CreateEnterprice extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -193,14 +220,21 @@ public class CreateEnterprice extends javax.swing.JPanel {
         Network network = (Network) networkJComboBox.getSelectedItem();
         EnterpriseType type = (EnterpriseType) enterpriseTypeJComboBox1.getSelectedItem();
         String country = (String) countryTypeJComboBox.getSelectedItem();
-
-        if (nameJTextField.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Invalid Input!");
-            return;
-        }else{
         String name = nameJTextField.getText();
+          try{
+            if(name.length() == 0 || name == null){ JOptionPane.showMessageDialog(null, "Please Complete all required fields");
+            }
+            else if(!Validation.isStringOnlyAlphabet(nameJTextField.getText())){
+            JOptionPane.showMessageDialog(null, "Please enter a valid text");
+        }
+        else{
         network.getEnterpriseDirectory().createAndAddEnterprise(name, type, country);
         populateTable();}
+          }
+          catch(Exception e){
+        JOptionPane.showMessageDialog(null, "Please enter valid inputs","Incorrect Input", JOptionPane.WARNING_MESSAGE);
+    }
+       
     }//GEN-LAST:event_submitJButtonActionPerformed
 
     private void networkJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkJComboBoxActionPerformed
@@ -221,6 +255,7 @@ public class CreateEnterprice extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameJTextField;

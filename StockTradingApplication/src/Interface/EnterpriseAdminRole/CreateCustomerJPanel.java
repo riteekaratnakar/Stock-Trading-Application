@@ -11,6 +11,7 @@ import Business.Enterprice.Enterprise;
 import Business.Organization.Organization;
 import Utility.Constant;
 import Utility.Constant.UserType;
+import Utility.Validation;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -84,9 +85,10 @@ public class CreateCustomerJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(null);
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Name:");
         add(jLabel6);
-        jLabel6.setBounds(300, 290, 80, 14);
+        jLabel6.setBounds(290, 270, 110, 17);
 
         nameJTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,20 +96,23 @@ public class CreateCustomerJPanel extends javax.swing.JPanel {
             }
         });
         add(nameJTextField);
-        nameJTextField.setBounds(430, 280, 140, 20);
+        nameJTextField.setBounds(430, 260, 140, 30);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Username:");
         add(jLabel4);
-        jLabel4.setBounds(300, 380, 100, 14);
+        jLabel4.setBounds(290, 390, 110, 14);
         add(usernameJTextField);
-        usernameJTextField.setBounds(430, 362, 140, 30);
+        usernameJTextField.setBounds(430, 380, 140, 30);
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Password:");
         add(jLabel5);
-        jLabel5.setBounds(300, 410, 90, 14);
+        jLabel5.setBounds(290, 430, 120, 20);
         add(passwordJPasswordField);
-        passwordJPasswordField.setBounds(430, 400, 140, 20);
+        passwordJPasswordField.setBounds(430, 420, 140, 30);
 
+        createJButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         createJButton.setText("Create");
         createJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,8 +120,9 @@ public class CreateCustomerJPanel extends javax.swing.JPanel {
             }
         });
         add(createJButton);
-        createJButton.setBounds(468, 458, 65, 23);
+        createJButton.setBounds(470, 500, 110, 25);
 
+        backJButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         backJButton.setText("<< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +130,7 @@ public class CreateCustomerJPanel extends javax.swing.JPanel {
             }
         });
         add(backJButton);
-        backJButton.setBounds(295, 458, 73, 23);
+        backJButton.setBounds(300, 500, 110, 25);
 
         accountBalanceJTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,16 +138,17 @@ public class CreateCustomerJPanel extends javax.swing.JPanel {
             }
         });
         add(accountBalanceJTextField);
-        accountBalanceJTextField.setBounds(430, 310, 140, 20);
+        accountBalanceJTextField.setBounds(430, 300, 140, 30);
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Account Balance($):");
         add(jLabel7);
-        jLabel7.setBounds(300, 320, 120, 14);
+        jLabel7.setBounds(290, 310, 160, 17);
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setText("Create Cutomer ");
         add(jLabel1);
-        jLabel1.setBounds(340, 200, 144, 24);
+        jLabel1.setBounds(340, 190, 144, 24);
 
         agentJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         agentJComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -150,11 +157,12 @@ public class CreateCustomerJPanel extends javax.swing.JPanel {
             }
         });
         add(agentJComboBox);
-        agentJComboBox.setBounds(430, 240, 140, 30);
+        agentJComboBox.setBounds(430, 220, 140, 30);
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Agent:");
         add(jLabel8);
-        jLabel8.setBounds(300, 250, 70, 14);
+        jLabel8.setBounds(290, 230, 70, 20);
 
         tableCutomerDetails.setBackground(new java.awt.Color(204, 204, 255));
         tableCutomerDetails.setModel(new javax.swing.table.DefaultTableModel(
@@ -173,21 +181,24 @@ public class CreateCustomerJPanel extends javax.swing.JPanel {
         add(jScrollPane2);
         jScrollPane2.setBounds(0, 50, 835, 131);
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("List of Cutomers:");
         add(jLabel9);
-        jLabel9.setBounds(70, 30, 160, 14);
+        jLabel9.setBounds(70, 30, 160, 17);
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Email ID:");
         add(jLabel3);
-        jLabel3.setBounds(300, 350, 42, 14);
+        jLabel3.setBounds(290, 350, 80, 17);
         add(txtFieldEmail);
-        txtFieldEmail.setBounds(430, 340, 140, 20);
+        txtFieldEmail.setBounds(430, 340, 140, 30);
         add(retypepasswordJPasswordField);
-        retypepasswordJPasswordField.setBounds(430, 430, 140, 20);
+        retypepasswordJPasswordField.setBounds(430, 460, 140, 30);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Re-type Password");
         add(jLabel2);
-        jLabel2.setBounds(300, 430, 88, 14);
+        jLabel2.setBounds(290, 470, 130, 17);
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/EnterpriseAdminRole/stock.jpg"))); // NOI18N
         add(jLabel10);
@@ -279,7 +290,7 @@ public class CreateCustomerJPanel extends javax.swing.JPanel {
    }
    
    
-   private boolean validations() {
+  /* private boolean validations() {
 
        usernameJTextField.setBackground(Color.decode("#FFFFFF"));
        passwordJPasswordField.setBackground(Color.decode("#FFFFFF"));
@@ -307,17 +318,47 @@ public class CreateCustomerJPanel extends javax.swing.JPanel {
        }
        return true;
 
-   }
+   } */
     private void createJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createJButtonActionPerformed
-        if(validations()){
+       try{
         Agent agent = (Agent) this.agentJComboBox.getSelectedItem();
-
+        String retypePassword = String.valueOf(retypepasswordJPasswordField.getPassword());
         String username = usernameJTextField.getText();
         String password = String.valueOf(passwordJPasswordField.getPassword());
         String name = nameJTextField.getText();
-         email = txtFieldEmail.getText();
+        email = txtFieldEmail.getText();
         float accountBlance = Float.parseFloat(this.accountBalanceJTextField.getText());
-
+ if(username.length() == 0 || username == null || password.length() == 0 || password == null || name.length() == 0 || retypePassword.length() ==0 || email.length() == 0){
+            JOptionPane.showMessageDialog(null, "Please complete all required fields");
+        }
+        else if(!Validation.isStringOnlyAlphabet(nameJTextField.getText())){
+            JOptionPane.showMessageDialog(null, "Please enter a valid text");
+            
+        }
+        else if(!Validation.validateTextFieldsForAmount(accountBalanceJTextField)){
+            JOptionPane.showMessageDialog(null, "Please enter valid amount ");
+        }
+        else if(String.valueOf(accountBlance).matches("[a-zA-Z]")){
+         JOptionPane.showMessageDialog(null, "Please Enter Numeric Values");
+        }
+    /*    else if(!Validation.validateTextFieldForPercentage(brokerageTextField)){
+           JOptionPane.showMessageDialog(null, "Please enter valid brokerage");
+        }
+*/         else if(!Validation.checkUniquenessOfUserNameCustomer(username, agent)){
+            JOptionPane.showMessageDialog(null, "Username Already Exists");
+        } 
+        else if(!Validation.validateTextFieldsForEmailId(txtFieldEmail)){
+            JOptionPane.showMessageDialog(null, "Please enter valid email -id ");
+        }
+        else if(!password.equals(retypePassword)){
+            JOptionPane.showMessageDialog(null, "Password does not match");
+        }
+        else if(!(passwordRegex(passwordJPasswordField.getText()))){
+        JOptionPane.showMessageDialog(this, "Enter valid Password.");
+           passwordJPasswordField.setBackground(Color.decode("#FF9999"));
+        }
+ 
+        else{
         Customer customer = agent.getCustomerDirectoryList().createAndAddCustomer();
         customer.setName(name);
         customer.setBalance(accountBlance);
@@ -328,9 +369,13 @@ public class CreateCustomerJPanel extends javax.swing.JPanel {
         customer.setEmail(email);
         mail();
          this.populateTable();
-
-    }//GEN-LAST:event_createJButtonActionPerformed
+       }
+       }
+      catch(NumberFormatException e){
+        JOptionPane.showMessageDialog(null, "Please enter valid inputs","Incorrect Input", JOptionPane.WARNING_MESSAGE);
     }
+    }//GEN-LAST:event_createJButtonActionPerformed
+   
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
 
         rightContainer.remove(this);

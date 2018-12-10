@@ -328,7 +328,7 @@ public class mainJFrame extends javax.swing.JFrame {
         char[] passwordCharArray = this.textFieldPassword.getPassword();
         String password = String.valueOf(passwordCharArray);
 
-        //if ( userName.equals("Sys") && password.equals("Sys")) {
+         if ( userName.equals("Sys") && password.equals("Sys")) {
             isPasswordFound = true;
             SystemAdminWorkAreaJPanel sysAdminWorkArea = new SystemAdminWorkAreaJPanel(this.rightContainer, this.stockInstance);
             this.rightContainer.add(sysAdminWorkArea);
@@ -418,7 +418,7 @@ public class mainJFrame extends javax.swing.JFrame {
         if (!isPasswordFound) {
             JOptionPane.showMessageDialog(null, "Password Not found!!");
         }
-        */
+        */}
     }//GEN-LAST:event_buttonLoginActionPerformed
    // }
     private void enterpriseAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseAdminButtonActionPerformed
@@ -451,9 +451,9 @@ public class mainJFrame extends javax.swing.JFrame {
         }
             }
         }
-        // if (!isPasswordFound) {
-          //  JOptionPane.showMessageDialog(null, "Incorrect password or Id!!");
-        //}
+        if (!isPasswordFound) {
+            JOptionPane.showMessageDialog(null, "Incorrect password or Id!!");
+        }
     }//GEN-LAST:event_enterpriseAdminButtonActionPerformed
 
     private void jLabel33KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel33KeyPressed
@@ -485,7 +485,8 @@ public class mainJFrame extends javax.swing.JFrame {
 
     private void AgentLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgentLoginButtonActionPerformed
         // TODO add your handling code here:
-          boolean isPasswordFound = false;
+        try{ 
+        boolean isPasswordFound = false;
         // Get user name
         String userName = this.textFieldUserName.getText();
         // Get Password
@@ -509,18 +510,20 @@ public class mainJFrame extends javax.swing.JFrame {
                             textFieldPassword.setEnabled(false);
 
                         }
-         /*   else{
-            JOptionPane.showMessageDialog(null, "Invalid Credentials");
-            return;
-        } */
+                  
                     }
                 }
             }
+        }
+           catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Invalid Credentials");
+            return;
+        } 
     }//GEN-LAST:event_AgentLoginButtonActionPerformed
 
     private void UserLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserLoginButtonActionPerformed
         // TODO add your handling code here:
-     
+     try{
         boolean isPasswordFound = false;
         // Get user name
         String userName = this.textFieldUserName.getText();
@@ -550,15 +553,17 @@ public class mainJFrame extends javax.swing.JFrame {
                                 textFieldPassword.setEnabled(false);
 
                             }
-                      /*      else{
-            JOptionPane.showMessageDialog(null, "Invalid Credentials");
-            return;
-        } */
                         }
 
                     }
                 }
+        }
+     
     }//GEN-LAST:event_UserLoginButtonActionPerformed
+     catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Invalid Credentials");
+            return;
+        }
     }
     private void exitLabelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_exitLabelKeyPressed
         // TODO add your handling code here:

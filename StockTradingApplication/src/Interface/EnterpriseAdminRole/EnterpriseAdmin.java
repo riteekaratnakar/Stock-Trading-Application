@@ -62,6 +62,7 @@ public class EnterpriseAdmin extends javax.swing.JPanel {
         enterpriseLabel1 = new javax.swing.JLabel();
         lableNetwork = new javax.swing.JLabel();
         userJButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
@@ -80,34 +81,46 @@ public class EnterpriseAdmin extends javax.swing.JPanel {
 
         labelEnterprise.setText("<value>");
         jPanel1.add(labelEnterprise);
-        labelEnterprise.setBounds(430, 130, 130, 16);
+        labelEnterprise.setBounds(430, 130, 130, 14);
 
+        manageOrganizationJButton.setBackground(new java.awt.Color(204, 255, 204));
+        manageOrganizationJButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        manageOrganizationJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/EnterpriseAdminRole/icons8_Organization_50px.png"))); // NOI18N
         manageOrganizationJButton.setText("Manage Organization");
+        manageOrganizationJButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         manageOrganizationJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageOrganizationJButtonActionPerformed(evt);
             }
         });
         jPanel1.add(manageOrganizationJButton);
-        manageOrganizationJButton.setBounds(320, 170, 150, 30);
+        manageOrganizationJButton.setBounds(260, 170, 240, 40);
 
+        manageAgentJButton.setBackground(new java.awt.Color(204, 255, 204));
+        manageAgentJButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        manageAgentJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/EnterpriseAdminRole/icons8_Management_64px_1.png"))); // NOI18N
         manageAgentJButton.setText("Manage Agent");
+        manageAgentJButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         manageAgentJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageAgentJButtonActionPerformed(evt);
             }
         });
         jPanel1.add(manageAgentJButton);
-        manageAgentJButton.setBounds(320, 220, 150, 30);
+        manageAgentJButton.setBounds(260, 220, 240, 40);
 
+        userJButton.setBackground(new java.awt.Color(204, 255, 204));
+        userJButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        userJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/EnterpriseAdminRole/icons8_Request_Money_50px.png"))); // NOI18N
         userJButton.setText("Manage Request");
+        userJButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         userJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userJButtonActionPerformed(evt);
             }
         });
         jPanel1.add(userJButton);
-        userJButton.setBounds(320, 330, 150, 40);
+        userJButton.setBounds(260, 320, 240, 40);
 
         enterpriseLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel1.setText("Network");
@@ -116,16 +129,25 @@ public class EnterpriseAdmin extends javax.swing.JPanel {
 
         lableNetwork.setText("<value>");
         jPanel1.add(lableNetwork);
-        lableNetwork.setBounds(430, 90, 130, 16);
+        lableNetwork.setBounds(430, 90, 130, 14);
 
+        userJButton1.setBackground(new java.awt.Color(204, 255, 204));
+        userJButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        userJButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/EnterpriseAdminRole/icons8_Customer_50px.png"))); // NOI18N
         userJButton1.setText("Manage Customer");
+        userJButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         userJButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userJButton1ActionPerformed(evt);
             }
         });
         jPanel1.add(userJButton1);
-        userJButton1.setBounds(320, 270, 150, 40);
+        userJButton1.setBounds(260, 270, 240, 40);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/EnterpriseAdminRole/stock.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(0, 0, 740, 540);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -183,6 +205,7 @@ public class EnterpriseAdmin extends javax.swing.JPanel {
     private javax.swing.JLabel enterpriseLabel1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelEnterprise;
     private javax.swing.JLabel lableNetwork;
